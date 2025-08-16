@@ -1,0 +1,115 @@
+{
+  "designStyle": {
+    "theme": "Minimalist Product Showcase",
+    "mood": "Fresh, clean, professional",
+    "colorPalette": {
+      "primary": "#B2E0EA",
+      "accent": "#4A90E2",
+      "textPrimary": "#1A1A1A",
+      "textSecondary": "#666666",
+      "highlight": "#F7F7F7",
+      "divider": "#E0E0E0"
+    },
+    "typography": {
+      "fontFamily": "Sans-serif (e.g. Inter, Helvetica, Poppins)",
+      "headings": {
+        "fontWeight": "700",
+        "fontSizeScale": ["32px", "24px", "18px"]
+      },
+      "bodyText": {
+        "fontWeight": "400",
+        "fontSize": "16px",
+        "lineHeight": "1.6"
+      },
+      "alignment": "left-aligned, centered on mobile"
+    },
+    "iconStyle": "Outlined, minimal stroke icons with equal spacing"
+  },
+  "layoutStructure": {
+    "header": {
+      "type": "Sticky top nav",
+      "background": "#000000",
+      "height": "64px",
+      "elements": ["Logo left", "Menu center", "Search & Cart right"],
+      "textColor": "#FFFFFF"
+    },
+    "heroSection": {
+      "layout": "Split - Image Left, Text Right",
+      "background": "#B2E0EA",
+      "elements": [
+        "Product floating 3D render",
+        "Small coral, fish for visual interest",
+        "Product name & brief subtitle",
+        "Price & add to cart block",
+        "Payment icons (monochrome style)"
+      ]
+    },
+    "infoBar": {
+      "type": "Icon row grid",
+      "background": "#FFFFFF",
+      "columns": 6,
+      "elements": ["Shade", "DHA %", "SPF", "Results Time", "Lasts", "Icon Label"]
+    },
+    "tabsSection": {
+      "type": "Horizontal tab navigation",
+      "tabs": ["Description", "How to Use", "Reviews"],
+      "underlineActive": true
+    },
+    "contentBlocks": [
+      {
+        "title": "Product Description",
+        "layout": "Two-column with visuals and supporting text",
+        "background": "#FFFFFF"
+      },
+      {
+        "title": "Usage Details",
+        "layout": "Image left, text right (or stacked on mobile)",
+        "background": "#F7F7F7"
+      }
+    ],
+    "footer": {
+      "background": "#000000",
+      "textColor": "#FFFFFF",
+      "elements": ["Links", "Social icons", "Copyright"]
+    }
+  },
+  "animations": {
+    "pageLoad": "Fade in",
+    "hoverEffects": "Button & card hover: slight scale + soft shadow",
+    "transitions": "Smooth (ease-in-out) for all tabs and cart interaction"
+  },
+  "components": {
+    "button": {
+      "style": "Solid black with white text",
+      "borderRadius": "6px",
+      "hover": "background: #1A1A1A"
+    },
+    "card": {
+      "style": "Shadowed box",
+      "padding": "20px",
+      "background": "#FFFFFF"
+    },
+    "iconLabel": {
+      "alignment": "Centered",
+      "fontSize": "14px",
+      "gap": "8px"
+    },
+    "tab": {
+      "activeColor": "#4A90E2",
+      "inactiveColor": "#666666",
+      "underline": true
+    }
+  },
+  "responsiveness": {
+    "breakpoints": {
+      "mobile": "max-width: 768px",
+      "tablet": "max-width: 1024px"
+    },
+    "behavior": {
+      "stackColumns": true,
+      "centerText": true,
+      "collapseMenus": true
+    }
+  }
+}
+  
