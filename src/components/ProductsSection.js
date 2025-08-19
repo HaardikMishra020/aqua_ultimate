@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ExternalLink, Eye, Heart } from 'lucide-react';
 
 const ProductsSection = () => {
   const [activeTab, setActiveTab] = useState('Water Conditioner');
+  const [visibleCount, setVisibleCount] = useState(3); // default for small screens
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768); // md breakpoint
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
 
   const products = [
     {
@@ -128,6 +138,9 @@ const ProductsSection = () => {
         return null;
     }
   };
+  const displayedProducts = isMobile
+    ? filteredProducts.slice(0, visibleCount)
+    : filteredProducts;
 
   const handleBuyNow = (productName) => {
     // TODO: Replace with actual Amazon URL for each product
@@ -187,7 +200,7 @@ const ProductsSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
-          {filteredProducts.map((product, index) => (
+          {displayedProducts.map((product, index) => (
             <motion.div
               key={product.name}
               initial={{ opacity: 0, y: 20 }}
@@ -274,7 +287,17 @@ const ProductsSection = () => {
             </motion.div>
           ))}
         </motion.div>
-
+        {/* See More button - only on mobile if more products exist */}
+        {isMobile && visibleCount < filteredProducts.length && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 3)}
+              className="px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-md"
+            >
+              See More
+            </button>
+          </div>
+        )}
         {/* Empty State */}
         {filteredProducts.length === 0 && (
           <motion.div

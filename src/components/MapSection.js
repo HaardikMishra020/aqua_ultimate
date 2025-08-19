@@ -9,14 +9,21 @@ const MapSection = () => {
   useEffect(() => {
     const generatePulsePoint = () => {
       const points = [
-        { x: 20, y: 30, city: 'Mumbai' },
-        { x: 25, y: 35, city: 'Delhi' },
-        { x: 15, y: 40, city: 'Bangalore' },
-        { x: 30, y: 25, city: 'Chennai' },
-        { x: 18, y: 45, city: 'Hyderabad' },
-        { x: 35, y: 30, city: 'Kolkata' },
-        { x: 22, y: 50, city: 'Pune' },
-        { x: 28, y: 20, city: 'Ahmedabad' },
+        { x: 22, y: 60, city: 'Mumbai' },
+        { x: 33, y: 30, city: 'Delhi' },
+        { x: 33, y: 76, city: 'Bangalore' },
+        { x: 40, y: 78, city: 'Chennai' },
+        { x: 36, y: 65, city: 'Hyderabad' },
+        { x: 30, y: 23, city: 'Chandigarh' },
+        { x: 26, y: 61, city: 'Pune' },
+        { x: 21, y: 47, city: 'Ahmedabad' },
+        { x: 28, y: 36, city: 'Jaipur' },
+        { x: 63, y: 48, city: 'Kolkata' },
+        { x: 41, y: 35, city: 'Lucknow' },
+        { x: 31, y: 85, city: 'Kochi' },
+        { x: 35, y: 46, city: 'Bhopal' },
+        { x: 39, y: 54, city: 'Nagpur' },
+        { x: 56, y: 40, city: 'Patna' }, 
       ];
       
       const randomPoint = points[Math.floor(Math.random() * points.length)];

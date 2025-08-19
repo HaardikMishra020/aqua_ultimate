@@ -1,11 +1,27 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Wrench, Users, Play } from 'lucide-react';
+import { Shield, Wrench, Users, Play, Contact } from 'lucide-react';
 
 const AdditionalInfo = () => {
-  const [selectedOption, setSelectedOption] = useState('warranty');
+  const [selectedOption, setSelectedOption] = useState('contact');
 
   const options = [
+    {
+      id: 'contact',
+      title: 'Contact Details',
+      icon: Contact,
+      content: {
+        title: 'Get in Touch',
+        description: 'Have questions? We’re here to help.',
+        details: [
+          'Phone Number - +91-9219265755',
+          'Office Address - 73 Roshan Bagh, Dayal Bagh, Agra, Uttar Pradesh 282005',
+          'Email Address - aquaultimate13@gmail.com',
+        ],
+        videoUrl: null, // Add video URL if available
+        map:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3547.9009750233545!2d77.99661047589507!3d27.222258646718604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397479e0f9283c25%3A0x5d8cd89f945e38ce!2sAqua%20Ultimate%20Water%20Conditioner!5e0!3m2!1sen!2sin!4v1755366500613!5m2!1sen!2sin'
+      }
+    },
     {
       id: 'warranty',
       title: 'Warranty Details',
@@ -20,7 +36,8 @@ const AdditionalInfo = () => {
           'Transferable warranty to new homeowners',
           '24/7 customer support for warranty claims'
         ],
-        videoUrl: null // Add video URL if available
+        videoUrl: null,
+        map:null // Add video URL if available
       }
     },
     {
@@ -37,7 +54,8 @@ const AdditionalInfo = () => {
           'Post-installation testing and verification',
           'Comprehensive installation guide provided'
         ],
-        videoUrl: null // Add video URL if available
+        videoUrl: null,
+        map:null // Add video URL if available
       }
     },
     {
@@ -54,7 +72,8 @@ const AdditionalInfo = () => {
           'Easy referral tracking system',
           'Exclusive member benefits and discounts'
         ],
-        videoUrl: null // Add video URL if available
+        videoUrl: null,
+        map:null // Add video URL if available
       }
     }
   ];
@@ -125,8 +144,20 @@ const AdditionalInfo = () => {
                   </div>
                 )}
 
+                  {currentContent.map && (
+                    <div className="relative aspect-video overflow-hidden">
+                   <iframe src={currentContent.map} 
+                   width="500" 
+                   height="400"  
+                   allowfullscreen="" 
+                   referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                  
+                  )}
+
+
                 {/* CTA Button */}
-                <div className="mt-8">
+                {/* <div className="mt-8">
                   <button className="bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-all duration-300 flex items-center gap-2">
                     Learn More
                     <motion.div
@@ -136,7 +167,7 @@ const AdditionalInfo = () => {
                       →
                     </motion.div>
                   </button>
-                </div>
+                </div> */}
               </>
             )}
           </motion.div>

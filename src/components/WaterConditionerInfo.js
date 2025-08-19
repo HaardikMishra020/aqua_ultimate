@@ -3,11 +3,11 @@ import React from 'react';
 const WaterConditionerInfo = () => {
   return (
     <section className="bg-blue-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto rounded-3xl shadow-lg bg-white/70 backdrop-blur-md p-6 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div className="bg-gray-900 max-w-6xl mx-auto rounded-3xl shadow-lg backdrop-blur-md p-6 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Left Side: Text */}
         <div className="flex-1 w-full md:w-1/2 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">What is a Water Conditioner?</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-white leading-relaxed">
             Water conditioners are innovative devices that neutralize hard minerals in your water, preventing scale buildup without removing healthy minerals. They help soaps and shampoos lather better, protect your appliances and plumbing, and require zero maintenance—making them a smart, hassle-free solution for healthier water throughout your home.
           </p>
         </div>
