@@ -1,51 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
-      name: 'Priya Sharma',
-      location: 'Mumbai, Maharashtra',
+      name: 'Mr. Harish Kumar',
       rating: 5,
-      text: 'Aqua Ultimate has completely transformed our water quality. My skin feels so much softer and my hair is no longer dry and frizzy. The installation was simple and the results were immediate. Highly recommend!',
-      avatar: 'PS'
+      text: 'Aqua Ultimate Water Conditioner has completely transformed our water quality. My skin feels so much softer and my hair is no longer dry and frizzy. The installation was simple and the results were immediate. Highly recommend!',
+      avatar: 'HK',
+      img:'https://res.cloudinary.com/dvragaic8/image/upload/v1755933418/1000008624_czfotd.jpg',
+      videoUrl:null,
     },
     {
-      name: 'Rajesh Kumar',
-      location: 'Delhi, NCR',
+      name: 'Mr. Anil Solanki',
       rating: 5,
-      text: 'After struggling with hard water for years, Aqua Ultimate was a game-changer. Our bathroom tiles stay clean, appliances last longer, and the water feels amazing. Best investment for our home!',
-      avatar: 'RK'
+      text: 'After struggling with hard water for years, This product was a game-changer. Our bathroom tiles stay clean, appliances last longer, and the water feels amazing. Best investment for our home!',
+      avatar: 'AS',
+      img:'https://res.cloudinary.com/dvragaic8/image/upload/v1755933417/1000008625_tiufyj.jpg',
+      videoUrl:null,
     },
     {
-      name: 'Anita Patel',
-      location: 'Bangalore, Karnataka',
-      rating: 5,
-      text: 'I was skeptical at first, but the difference is incredible. My kids\' skin rashes have completely disappeared, and our clothes feel softer after washing. Aqua Ultimate truly delivers on its promises.',
-      avatar: 'AP'
+      name: 'Mr Vinod Bhadauria',
+      rating: 4,
+      text: 'I was skeptical at first, but the difference is noticable. My kids\' skin rashes have completely disappeared, and our clothes feel softer after washing. Aqua Ultimate Water Conditioner does what it promises.',
+      avatar: 'VB',
+      img:'https://res.cloudinary.com/dvragaic8/image/upload/v1755933416/1000008626_j98isl.jpg',
+      videoUrl:null,
     },
     {
-      name: 'Suresh Menon',
-      location: 'Chennai, Tamil Nadu',
+      name: 'Ms. Swati Singh',
       rating: 5,
-      text: 'Professional installation, excellent customer service, and outstanding results. Our water quality has improved dramatically. The 15-year warranty gives us complete peace of mind.',
-      avatar: 'SM'
+      text: 'I’ve been using Aqua Ultimate Water Conditioner for 2 years now, and the difference is amazing. The water feels softer, my hair doesn’t get dry anymore, and even my washing machine is running better. The best part is – it’s completely maintenance-free. Overall, I’m really happy with the product',
+      avatar: 'SS',
+      img:null,
+      videoUrl:'https://www.youtube.com/embed/yDxKwhVQ-C0?si=Crj6zvqzSVl1CMso&amp;start=0',
     }
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  //   }, 20000);
 
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
+  //   return () => clearInterval(timer);
+  // }, [testimonials.length]);
+
+  const handlePrev = () => {
+    setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
 
   return (
-    <section id="reviews" className="bg-backgroundLight py-20">
+    <section id="reviews" className="py-20 bg-blue-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,10 +68,10 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
             What Our Customers Say
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-xl max-w-3xl mx-auto">
             Real testimonials from families who have experienced the Aqua Ultimate difference
           </p>
         </motion.div>
@@ -69,22 +83,44 @@ const Testimonials = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="card p-8 md:p-12 text-center relative"
+            className="card p-8 md:p-12 text-center relative bg-gray-900"
+            id="testimonial-card"
           >
-            {/* Quote Icon */}
-            <div className="absolute top-6 left-6 text-primary opacity-20">
-              <Quote size={48} />
+            <div className='flex items-center'>
+              {testimonials[currentTestimonial].img ?
+            <div>
+              <img
+                src={testimonials[currentTestimonial].img}
+                className="w-full h-full object-cover"
+                draggable={false}
+              />
+            </div>:
+            <div>
+              <iframe
+                className="w-[10vw] h-[40vh] aspect-video rounded-2xl shadow-lg"
+                src={testimonials[currentTestimonial].videoUrl}
+                frameBorder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
             </div>
+            }
+            <div>
+            {/* Quote Icon */}
+            {/* <div className="absolute top-6 left-6 text-primary opacity-20">
+              <Quote size={48} />
+            </div> */}
 
             {/* Rating */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center ml-6 mb-6">
               {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
                 <Star key={i} size={24} className="text-yellow-400 fill-current" />
               ))}
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 italic">
+            <p className="text-lg md:text-xl text-white leading-relaxed mb-8 italic px-5">
               "{testimonials[currentTestimonial].text}"
             </p>
 
@@ -94,13 +130,15 @@ const Testimonials = () => {
                 {testimonials[currentTestimonial].avatar}
               </div>
               <div className="text-left">
-                <h4 className="font-semibold text-text">
+                <h4 className="font-semibold text-white">
                   {testimonials[currentTestimonial].name}
                 </h4>
                 <p className="text-gray-600 text-sm">
                   {testimonials[currentTestimonial].location}
                 </p>
               </div>
+            </div>
+            </div>
             </div>
           </motion.div>
 
@@ -111,15 +149,30 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentTestimonial ? 'bg-accent' : 'bg-gray-300'
+                  index === currentTestimonial ? 'bg-accent' : 'bg-gray-900'
                 }`}
               />
             ))}
           </div>
+          <div className="flex justify-center items-center mt-6 space-x-4">
+              <button
+                onClick={handlePrev}
+                className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center transition"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-600" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center transition"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
+
         </div>
 
         {/* Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -142,7 +195,7 @@ const Testimonials = () => {
             <div className="text-3xl md:text-4xl font-bold text-accent mb-2">24/7</div>
             <div className="text-gray-600">Support</div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ const ProductsSection = () => {
   const [activeTab, setActiveTab] = useState('Water Conditioner');
   const [visibleCount, setVisibleCount] = useState(3); // default for small screens
   const [isMobile, setIsMobile] = useState(false);
+  const [likes, setLikes] = useState({});
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768); // md breakpoint
@@ -15,94 +16,125 @@ const ProductsSection = () => {
   }, []);
 
 
+  const handleLike = (id) => {
+    setLikes((prev) => ({
+      ...prev,
+      [id]: !prev[id], // toggle heart for this product
+    }));
+  };
+
   const products = [
     {
+      "id":1,
       "name": "1000 LPH Water Conditioner",
       "priceINR": 24500,
       "priceActual": 18500,
       "currency": "INR",
       "category": "Water Conditioner",
-      "rating": 5,
-      "type": "existing"
+      "rating": 4,
+      "type": "existing",
+      "imgUrl":"https://res.cloudinary.com/dvragaic8/image/upload/v1755623398/a04_yea3eh.png"
     },
     {
+      "id":2,
       "name": "Mannual 10",
       "priceINR": 8990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":3,
       "name": "Mannual 20",
       "priceINR": 11990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":4,
       "name": "SF",
       "priceINR": 14500,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":5,
       "name": "PW 31",
       "priceINR": 10490,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":6,
       "name": "Commercial 60 ltr/hr",
       "priceINR": 39990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":7,
       "name": "Industrial 1000 Ltr/hr",
       "priceINR": 240000,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":8,
       "name": "15 lph Alkaline",
       "priceINR": 13990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
+      // "imgUrl":"https://res.cloudinary.com/dvragaic8/image/upload/v1755672978/ChatGPT_Image_Aug_20_2025_12_25_12_PM_czjle9.png"
     },
     {
+      "id":9,
       "name": "Under Sink",
       "priceINR": 15490,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
-      "type": "existing"
+      "type": "existing",
+      "imgUrl":null
     },
     {
+      "id":10,
       "name": "650 LPH Water Conditioner",
       "priceINR": 14999,
       "priceActual": 9990,
       "currency": "INR",
       "category": "Water Conditioner",
-      "type": "new"
+      "rating":4,
+      "type": "new",
+      "imgUrl":"https://res.cloudinary.com/dvragaic8/image/upload/v1755623088/IMG20250122144729-Photoroom_oj0cw1.png"
     },
     {
+      "id":11,
       "name": "Shower Conditioner",
       "priceINR": null,
       "currency": "INR",
       "category": "Water Conditioner",
-      "type": "coming_soon"
+      "type": "coming_soon",
+      "imgUrl":null
     }
   ];
 
@@ -154,7 +186,7 @@ const ProductsSection = () => {
   };
 
   return (
-    <section id="products" className="section-padding bg-gray-50">
+    <section id="products" className="section-padding bg-text">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -163,10 +195,10 @@ const ProductsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Products
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Our Range of Products
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Discover our comprehensive range of water treatment solutions designed to provide you with the purest, healthiest water possible.
           </p>
         </motion.div>
@@ -184,8 +216,8 @@ const ProductsSection = () => {
               onClick={() => setActiveTab(category)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeTab === category
-                  ? 'bg-black text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  ? 'bg-white text-grey-700 shadow-lg'
+                  : 'bg-black text-white hover:bg-white hover:text-black border border-gray-200'
               }`}
             >
               {category}
@@ -210,7 +242,8 @@ const ProductsSection = () => {
             >
               {/* Product Image */}
               <div className="relative h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                <div className="text-6xl">{getProductImage(product.category)}</div>
+                {product.imgUrl ? <img src={product.imgUrl}/>
+                :<div className="text-6xl">{getProductImage(product.category)}</div>}
                 {getTypeBadge(product.type) && (
                   <div className="absolute top-3 right-3">
                     {getTypeBadge(product.type)}
@@ -278,8 +311,8 @@ const ProductsSection = () => {
                       <Eye size={16} className="text-gray-600" />
                     </button>
                     
-                    <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-300">
-                      <Heart size={16} className="text-gray-600" />
+                    <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-300" onClick={() => handleLike(product.id)}>
+                      {likes[product.id] ? <Heart size={16} fill='red' className='text-red-600'/>:<Heart size={16} className="text-gray-600" />}
                     </button>
                   </div>
                 )}
@@ -306,8 +339,8 @@ const ProductsSection = () => {
             className="text-center py-12"
           >
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
-            <p className="text-gray-600">We're working on adding products to this category.</p>
+            <h3 className="text-xl font-semibold text-white mb-2">No products found</h3>
+            <p className="text-white">We're working on adding products to this category.</p>
           </motion.div>
         )}
       </div>

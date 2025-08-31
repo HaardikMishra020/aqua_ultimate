@@ -42,6 +42,23 @@ const BeforeAfter = () => {
       },
     },
     {
+      title: "Scale Buildup",
+      before: {
+        title: "Before",
+        description:
+          "Hard water leads to heavy scale deposits inside pipes. Appliances like geysers and washing machines lose efficiency and often break down sooner due to clogging.",
+        imageUrl:
+          "https://res.cloudinary.com/dvragaic8/image/upload/v1755703327/generated-image_12_gfsrwh.png",
+      },
+      after: {
+        title: "After",
+        description:
+          "With conditioned water, scale buildup is prevented. Pipes and appliances last longer, and your bathroom looks cleaner with minimal maintenance.",
+        imageUrl:
+          "https://res.cloudinary.com/dvragaic8/image/upload/v1755703344/generated-image_13_bymtao.png",
+      },
+    },
+    {
       title: "Plants Growth",
       before: {
         title: "Before",
@@ -79,16 +96,16 @@ const BeforeAfter = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          <h2 className="text-4xl md:text-5xl font-bold mb-2">
             See the Difference
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-xl">
           Use the slider (◀ ▶) to experience how Aqua Ultimate Water Conditioner improves your everyday life.
           </p>
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Column - Carousel */}
           <div className="flex flex-col items-center">
             <motion.div
@@ -137,17 +154,17 @@ const BeforeAfter = () => {
 
           {/* Right Column - Details Box */}
           <div className="bg-gray-900 rounded-3xl py-12 px-4 sm:px-6 lg:px-8">
-            <h3 className="text-2xl font-semibold text-white mb-4">
+            <h3 className="text-4xl font-semibold text-white mb-6">
               {slides[current].title}
             </h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-red-600">{slides[current].before.title}</h4>
-                <p className="text-white">{slides[current].before.description}</p>
+                <h4 className="text-xl text-red-600">{slides[current].before.title}</h4>
+                <p className="text-white text-xl">{slides[current].before.description}</p>
               </div>
               <div>
-                <h4 className="font-medium text-green-600">{slides[current].after.title}</h4>
-                <p className="text-white">{slides[current].after.description}</p>
+                <h4 className="text-xl text-green-600">{slides[current].after.title}</h4>
+                <p className="text-white text-xl">{slides[current].after.description}</p>
               </div>
             </div>
           </div>

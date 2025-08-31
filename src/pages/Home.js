@@ -52,8 +52,8 @@ function Home() {
       {/* <Trial/> */}
       <BeforeAfter />
       <ProductsSection />
-      <Testimonials />
       <MapSection />
+      <Testimonials />
       <FAQSection />
       {/* <AdditionalInfo /> */}
       {/* <Certifications /> */}
