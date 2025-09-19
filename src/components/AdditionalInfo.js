@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Wrench, Users, Play, Contact } from 'lucide-react';
+import { Shield, Wrench,  Play, Contact } from 'lucide-react';
 
 const AdditionalInfo = () => {
   const [selectedOption, setSelectedOption] = useState('contact');
@@ -147,6 +147,7 @@ const AdditionalInfo = () => {
                     <div className="relative w-full pb-[56.25%]">
                    <iframe
                     src={currentContent.map}
+                    title="map"
                     className="absolute top-0 left-0 w-full h-full rounded-lg"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"

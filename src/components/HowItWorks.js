@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Droplets, Zap, Heart, CheckCircle } from 'lucide-react';
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';
-import { scale } from "@cloudinary/url-gen/actions/resize";
 
 
 const HowItWorks = () => {

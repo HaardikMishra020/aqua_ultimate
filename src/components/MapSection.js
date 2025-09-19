@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Users, Star } from 'lucide-react';
+import { Users} from 'lucide-react';
 
 const MapSection = () => {
   const [pulsePoints, setPulsePoints] = useState([]);

@@ -1,7 +1,6 @@
 import React,{useEffect} from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Shield, Truck, CreditCard, Divide } from 'lucide-react';
-import ModelImg from '../assets/Model.png';
+import { ExternalLink } from 'lucide-react';
 import WAVES from 'vanta/dist/vanta.waves.min'
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';

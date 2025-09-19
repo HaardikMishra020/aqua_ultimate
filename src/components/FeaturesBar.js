@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Wrench, Ban, Heart, Shield, Zap } from 'lucide-react';
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';
 import { scale } from "@cloudinary/url-gen/actions/resize";

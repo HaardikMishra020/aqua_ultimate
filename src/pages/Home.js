@@ -8,7 +8,6 @@ import BeforeAfter from '../components/BeforeAfter';
 import Testimonials from '../components/Testimonials';
 import MapSection from '../components/MapSection';
 import FAQSection from '../components/FAQSection';
-import Certifications from '../components/Certifications';
 import ProductsSection from '../components/ProductsSection';
 import WaterConditionerInfo from '../components/WaterConditionerInfo';
 import AdditionalInfo from '../components/AdditionalInfo';

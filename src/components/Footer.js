@@ -120,6 +120,7 @@ const Footer = () => {
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-accent transition-colors"
                   aria-label={social.label}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <social.icon size={20} />
                 </a>

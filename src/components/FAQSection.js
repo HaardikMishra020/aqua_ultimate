@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, HelpCircle, MessageCircle, Phone } from 'lucide-react';
+import { ChevronDown, HelpCircle,  Phone } from 'lucide-react';
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState(null);

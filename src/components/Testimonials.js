@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star} from 'lucide-react';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';
@@ -110,6 +110,7 @@ const Testimonials = () => {
               <iframe
                 className="w-[50vw] md:w-[10vw] h-[40vh] aspect-video rounded-2xl shadow-lg my-5"
                 src={testimonials[currentTestimonial].videoUrl}
+                title='video'
                 frameBorder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
