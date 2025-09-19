@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle, MessageCircle, Phone } from 'lucide-react';
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -8,23 +8,40 @@ const FAQSection = () => {
   const faqs = [
     {
       id: 1,
-      question: "How does Aqua Ultimate work to condition hard water?",
-      answer: "Aqua Ultimate uses advanced electromagnetic technology to transform hard water molecules. The device creates a magnetic field that changes the structure of calcium and magnesium ions, preventing them from forming scale deposits. This results in soft, conditioned water that's gentle on your skin, hair, and appliances without using any chemicals or salt."
+      question: "How does the Aqua Ultimate Water Conditioner work?",
+      answer: "The Aqua Ultimate Water Conditioner uses a high-power magnetic field to break down hardness particles into nano-sized particles and polarize them. This process enhances soap effectiveness, reduces roughness caused by hard water, and improves the experience of bathing, washing, and cleaning for hair, skin, and clothes."
     },
     {
       id: 2,
-      question: "What is the installation process and how long does it take?",
-      answer: "Installation is simple and takes only 30-45 minutes. Our certified technicians will install the device on your main water line, typically near your water meter or where the main line enters your home. The process involves cutting the pipe, installing the device, and testing the system. No plumbing modifications are required, and the installation is completely non-invasive."
+      question: "Does it require maintenance?",
+      answer: "No. The Aqua Ultimate Water Conditioner has no filters or consumables, which means it requires no servicing or maintenance throughout its lifespan."
     },
     {
       id: 3,
-      question: "What is the warranty coverage and how long does the device last?",
-      answer: "Aqua Ultimate comes with a comprehensive 15-year warranty covering all parts and labor. The device is designed to last for 15+ years with zero maintenance required. Our warranty includes free replacement of any defective parts and technical support throughout the warranty period. The device is built with industrial-grade materials to ensure long-term reliability."
+      question: "What is the lifespan of the Aqua Ultimate Water Conditioner?",
+      answer: "On average, water conditioners have a lifespan of around 15 years, ensuring long-term performance without the need for replacement or upkeep."
+    },
+    {
+      id: 4,
+      question: "Does it make water drinkable?",
+      answer: "No. The Aqua Ultimate Water Conditioner does not make drinking water. Instead, it provides a cosmetic treatment to water, offering benefits for bathing, washing, laundry, skin, hair, plants, and overall household use."
     }
   ];
+  
 
   const toggleFAQ = (id) => {
     setOpenFAQ(openFAQ === id ? null : id);
+  };
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '9219265755'; // Replace with actual WhatsApp number
+    const message = encodeURIComponent('Hi! I\'m interested in Aqua Ultimate Water Conditioner. Can you provide more information?');
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  };
+  
+  const handleCall = () => {
+    window.location.href = "tel:+919219265755";
   };
 
   return (
@@ -118,12 +135,23 @@ const FAQSection = () => {
             <p className="text-blue-100 mb-6">
               Our customer support team is here to help you with any questions about Aqua Ultimate
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-md font-semibold hover:bg-gray-50 transition-colors">
-                Contact Support
+            <div className="flex flex-col md:flex-row gap-4 justify-center">
+            
+              <button className="flex gap-3 bg-white text-blue-900 px-8 py-3 rounded-md font-semibold hover:bg-gray-50 transition-colors" onClick={handleCall}>
+              <Phone/><span>Call us</span>
               </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-900 transition-colors">
-                Live Chat
+              
+              <button className="flex gap-3 bg-white border-2 border-white text-blue-900 px-8 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-900 transition-colors" onClick={handleWhatsAppClick}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7"
+                fill="currentColor"
+                style={{ color: "#128c7e" }}
+                viewBox="0 0 24 24"
+                >
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+              <span>WhatsApp us</span>
               </button>
             </div>
           </div>

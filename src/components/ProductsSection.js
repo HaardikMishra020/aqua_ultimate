@@ -1,6 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ExternalLink, Eye, Heart } from 'lucide-react';
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
+
 
 const ProductsSection = () => {
   const [activeTab, setActiveTab] = useState('Water Conditioner');
@@ -33,27 +37,27 @@ const ProductsSection = () => {
       "category": "Water Conditioner",
       "rating": 4,
       "type": "existing",
-      "imgUrl":"https://res.cloudinary.com/dvragaic8/image/upload/v1755623398/a04_yea3eh.png"
+      "imgUrl":"a04_yea3eh"
     },
     {
       "id":2,
-      "name": "Mannual 10",
+      "name": "Manual 10",
       "priceINR": 8990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"6_gvr00w"
     },
     {
       "id":3,
-      "name": "Mannual 20",
+      "name": "Manual 20",
       "priceINR": 11990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"6_gvr00w"
     },
     {
       "id":4,
@@ -63,7 +67,7 @@ const ProductsSection = () => {
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"Untitled_design_2_d9m8vo"
     },
     {
       "id":5,
@@ -73,17 +77,17 @@ const ProductsSection = () => {
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"1_vhnj8b"
     },
     {
       "id":6,
-      "name": "Commercial 60 ltr/hr",
-      "priceINR": 39990,
+      "name": "Commercial 40 ltr/hr",
+      "priceINR": 29990,
       "currency": "INR",
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"Untitled_design_3_fvrnwd"
     },
     {
       "id":7,
@@ -93,7 +97,7 @@ const ProductsSection = () => {
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"3_je0lnj"
     },
     {
       "id":8,
@@ -103,7 +107,7 @@ const ProductsSection = () => {
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"5_zagyy7"
       // "imgUrl":"https://res.cloudinary.com/dvragaic8/image/upload/v1755672978/ChatGPT_Image_Aug_20_2025_12_25_12_PM_czjle9.png"
     },
     {
@@ -114,7 +118,7 @@ const ProductsSection = () => {
       "category": "RO System",
       "rating": 5,
       "type": "existing",
-      "imgUrl":null
+      "imgUrl":"2_vnspya"
     },
     {
       "id":10,
@@ -125,7 +129,7 @@ const ProductsSection = () => {
       "category": "Water Conditioner",
       "rating":4,
       "type": "new",
-      "imgUrl":"https://res.cloudinary.com/dvragaic8/image/upload/v1755623088/IMG20250122144729-Photoroom_oj0cw1.png"
+      "imgUrl":"IMG20250122144729-Photoroom_oj0cw1"
     },
     {
       "id":11,
@@ -135,6 +139,16 @@ const ProductsSection = () => {
       "category": "Water Conditioner",
       "type": "coming_soon",
       "imgUrl":null
+    },
+    {
+      "id":12,
+      "name":"Water Softener",
+      "priceINR":95000,
+      "currency":"INR",
+      "rating": 5,
+      "category":"Water Softener",
+      "type":"existing",
+      "imgUrl":"Untitled_design_4_c0hwcv"
     }
   ];
 
@@ -232,7 +246,9 @@ const ProductsSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
-          {displayedProducts.map((product, index) => (
+          {displayedProducts.map((product, index) => {
+            const cldImg=cld.image(`${product.imgUrl}`).format("auto").quality("auto").resize(scale().width(300))
+            return(
             <motion.div
               key={product.name}
               initial={{ opacity: 0, y: 20 }}
@@ -241,16 +257,24 @@ const ProductsSection = () => {
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
             >
               {/* Product Image */}
-              <div className="relative h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                {product.imgUrl ? <img src={product.imgUrl}/>
-                :<div className="text-6xl">{getProductImage(product.category)}</div>}
-                {getTypeBadge(product.type) && (
-                  <div className="absolute top-3 right-3">
-                    {getTypeBadge(product.type)}
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-              </div>
+              <div className="relative h-48 bg-white flex items-center justify-center">
+              {product.imgUrl ? (
+                <AdvancedImage key={product.imgUrl} cldImg={cldImg} className="max-h-full max-w-full object-contain"/>
+                // <img 
+                //   src={product.imgUrl} 
+                //   alt={product.name}
+                //   className="max-h-full max-w-full object-contain"
+                // />
+              ) : (
+                <div className="text-6xl">{getProductImage(product.category)}</div>
+              )}
+              {getTypeBadge(product.type) && (
+                <div className="absolute top-3 right-3">
+                  {getTypeBadge(product.type)}
+                </div>
+              )}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+            </div>
 
               {/* Product Info */}
               <div className="p-6">
@@ -318,14 +342,14 @@ const ProductsSection = () => {
                 )}
               </div>
             </motion.div>
-          ))}
+          )})}
         </motion.div>
         {/* See More button - only on mobile if more products exist */}
         {isMobile && visibleCount < filteredProducts.length && (
           <div className="text-center mt-6">
             <button
               onClick={() => setVisibleCount((prev) => prev + 3)}
-              className="px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-md"
+              className="px-6 py-3 bg-white rounded-lg font-semibold transition-all duration-300 shadow-md"
             >
               See More
             </button>

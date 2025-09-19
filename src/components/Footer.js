@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Send, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook,  Instagram,  Send, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const footerLinks = {
@@ -51,11 +52,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-400">
                 <Phone size={16} className="mr-3" />
-                <span>+91 1800-123-4567</span>
+                <span>+91 - 7217438330</span>
               </div>
               <div className="flex items-center text-gray-400">
                 <Mail size={16} className="mr-3" />
-                <span>hello@aquaultimate.in</span>
+                <span>aquaultimate11@gmail.com</span>
               </div>
               <div className="flex items-center text-gray-400">
                 <MapPin size={16} className="mr-3" />
@@ -140,15 +141,8 @@ const Footer = () => {
               © 2025 Aqua Ultimate. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Cookie Policy
-              </a>
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/disclaimer" className="text-gray-400 hover:text-white transition-colors">Disclaimer</Link>
             </div>
           </div>
         </motion.div>

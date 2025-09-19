@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
 
 const BeforeAfterSlider = ({ before, after }) => {
   const [sliderPosition, setSliderPosition] = useState(5);
@@ -18,6 +21,8 @@ const BeforeAfterSlider = ({ before, after }) => {
 
   const handleStart = () => setIsDragging(true); // mouseDown + touchStart
   const handleEnd = () => setIsDragging(false);  // mouseUp + touchEnd
+  const cldImgBef=cld.image(`${before.imageUrl}`).format("auto").quality("auto").resize(scale().width(500))
+  const cldImgAft=cld.image(`${after.imageUrl}`).format("auto").quality("auto").resize(scale().width(500))
 
   return (
     <div className="relative" onMouseUp={handleEnd} onTouchEnd={handleEnd}>
@@ -34,10 +39,8 @@ const BeforeAfterSlider = ({ before, after }) => {
       >
         {/* Before Image */}
         <div className="absolute inset-0">
-          <img
-            src={before.imageUrl}
+          <AdvancedImage key={cldImgBef} cldImg={cldImgBef}
             className="w-full h-full object-cover"
-            draggable={false}
           />
           {/* Before Label */}
           <span className="absolute top-3 right-3 bg-black/60 text-white text-sm px-2 py-1 rounded">
@@ -50,10 +53,8 @@ const BeforeAfterSlider = ({ before, after }) => {
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
-          <img
-            src={after.imageUrl}
+          <AdvancedImage key={cldImgAft} cldImg={cldImgAft}
             className="w-full h-full object-cover"
-            draggable={false}
           />
           {/* After Label */}
           <span className="absolute top-3 left-3 bg-black/60 text-white text-sm px-2 py-1 rounded">

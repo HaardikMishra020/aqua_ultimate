@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Droplets, Zap, Heart, CheckCircle } from 'lucide-react';
-import Working from '../assets/working.png';
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
 
 
 const HowItWorks = () => {
-
+  const cldwork=cld.image('working_qhpa9o').format("auto").quality("auto")
   return (
     <section id="how-it-works" className="bg-[#f5f5f7] pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,7 +27,7 @@ const HowItWorks = () => {
         </motion.div>
 
         <div className="flex justify-center">
-          <img src={Working}></img>
+        <AdvancedImage key={cldwork} cldImg={cldwork}/>
         </div>
 
 

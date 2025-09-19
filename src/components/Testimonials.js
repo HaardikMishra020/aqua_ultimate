@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
+import { useSwipeable } from "react-swipeable";
 
 
 const Testimonials = () => {
@@ -13,7 +17,7 @@ const Testimonials = () => {
       rating: 5,
       text: 'Aqua Ultimate Water Conditioner has completely transformed our water quality. My skin feels so much softer and my hair is no longer dry and frizzy. The installation was simple and the results were immediate. Highly recommend!',
       avatar: 'HK',
-      img:'https://res.cloudinary.com/dvragaic8/image/upload/v1755933418/1000008624_czfotd.jpg',
+      img:'1000008624_czfotd',
       videoUrl:null,
     },
     {
@@ -21,7 +25,7 @@ const Testimonials = () => {
       rating: 5,
       text: 'After struggling with hard water for years, This product was a game-changer. Our bathroom tiles stay clean, appliances last longer, and the water feels amazing. Best investment for our home!',
       avatar: 'AS',
-      img:'https://res.cloudinary.com/dvragaic8/image/upload/v1755933417/1000008625_tiufyj.jpg',
+      img:'1000008625_tiufyj',
       videoUrl:null,
     },
     {
@@ -29,7 +33,7 @@ const Testimonials = () => {
       rating: 4,
       text: 'I was skeptical at first, but the difference is noticable. My kids\' skin rashes have completely disappeared, and our clothes feel softer after washing. Aqua Ultimate Water Conditioner does what it promises.',
       avatar: 'VB',
-      img:'https://res.cloudinary.com/dvragaic8/image/upload/v1755933416/1000008626_j98isl.jpg',
+      img:'1000008626_j98isl',
       videoUrl:null,
     },
     {
@@ -58,9 +62,18 @@ const Testimonials = () => {
     setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: handleNext,   // swipe left → go next
+    onSwipedRight: handlePrev,  // swipe right → go prev
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true, // allows drag with mouse also
+  });
+
+  const cldImg=cld.image(`${testimonials[currentTestimonial].img}`).format("auto").quality("auto").resize(scale().width(700))
+
   return (
     <section id="reviews" className="py-20 bg-blue-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div {...handlers} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,18 +99,16 @@ const Testimonials = () => {
             className="card p-8 md:p-12 text-center relative bg-gray-900"
             id="testimonial-card"
           >
-            <div className='flex items-center'>
+            <div className='flex flex-col sm:flex-row items-center'>
               {testimonials[currentTestimonial].img ?
             <div>
-              <img
-                src={testimonials[currentTestimonial].img}
-                className="w-full h-full object-cover"
-                draggable={false}
+              <AdvancedImage key={cldImg} cldImg={cldImg}
+                className="w-full h-full object-cover my-5"
               />
             </div>:
             <div>
               <iframe
-                className="w-[10vw] h-[40vh] aspect-video rounded-2xl shadow-lg"
+                className="w-[50vw] md:w-[10vw] h-[40vh] aspect-video rounded-2xl shadow-lg my-5"
                 src={testimonials[currentTestimonial].videoUrl}
                 frameBorder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

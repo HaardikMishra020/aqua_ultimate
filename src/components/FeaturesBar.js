@@ -1,46 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Wrench, Ban, Heart, Shield, Zap } from 'lucide-react';
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
 
 const FeaturesBar = () => {
   const features = [
     {
-      imgUrl: 'https://res.cloudinary.com/dvragaic8/image/upload/v1755499927/generated-image_9_nh7bgu.png',
+      imgUrl: 'generated-image_9_nh7bgu',
       title: 'Better Hair',
       description: 'Softer, healthier hair',
       color: 'text-gray-600',
       bgColor: 'bg-gray-50'
     },
     {
-      imgUrl: 'https://res.cloudinary.com/dvragaic8/image/upload/v1755500377/pexels-ximenamora-1727200_rpaw9i.png',
+      imgUrl: 'pexels-ximenamora-1727200_rpaw9i',
       title: 'Skin Safe',
       description: 'Gentle on your skin',
       color: 'text-gray-600',
       bgColor: 'bg-gray-50'
     },
     {
-      imgUrl: 'https://res.cloudinary.com/dvragaic8/image/upload/v1755501139/generated-image_11_lddhqd.png',
+      imgUrl: 'generated-image_11_lddhqd',
       title: 'Activate Soap',
       description: 'Soap lathers better',
       color: 'text-gray-600',
       bgColor: 'bg-gray-50'
     },
     {
-      imgUrl: 'https://res.cloudinary.com/dvragaic8/image/upload/v1755499773/generated-image_8_pq8zkf.png',
+      imgUrl: 'generated-image_8_pq8zkf',
       title: 'Protect Clothes',
       description: 'Protect clothes from fading',
       color: 'text-gray-600',
       bgColor: 'bg-gray-50'
     },
     {
-      imgUrl: 'https://res.cloudinary.com/dvragaic8/image/upload/v1755499440/generated-image_7_ywb2pl.png',
+      imgUrl: 'generated-image_7_ywb2pl',
       title: 'No Maintenance',
       description: 'Set it and forget it',
       color: 'text-gray-600',
       bgColor: 'bg-gray-50'
     },
     {
-      imgUrl: 'https://res.cloudinary.com/dvragaic8/image/upload/v1755498958/generated-image_6_yvs4vb.png',
+      imgUrl: 'generated-image_6_yvs4vb',
       title: '15 Year Life',
       description: 'Long-lasting performance',
       color: 'text-gray-600',
@@ -51,7 +54,7 @@ const FeaturesBar = () => {
   ];
 
   return (
-    <section className="bg-yellow-500 py-16">
+    <section id="features" className="bg-yellow-500 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +72,9 @@ const FeaturesBar = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {features.map((feature, index) => (
+          {features.map((feature, index) => {
+            const cldImg=cld.image(`${feature.imgUrl}`).format("auto").quality("auto").resize(scale().width(150))
+            return(
             <div className='bg-white rounded-lg p-4'>
             <motion.div
               key={feature.title}
@@ -80,8 +85,8 @@ const FeaturesBar = () => {
               className="text-center group"
             >
               <div className={`${feature.bgColor} rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <img src={feature.imgUrl} className="w-40 object-contain rounded-xl mb-2"
-                    draggable={false}/>
+                 <AdvancedImage key={feature.imgUrl} cldImg={cldImg} className="w-40 object-contain rounded-xl mb-2"
+                    />
               </div>
               <h3 className="font-semibold text-text mb-2 text-md">
                 {feature.title}
@@ -91,7 +96,7 @@ const FeaturesBar = () => {
               </p>
             </motion.div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

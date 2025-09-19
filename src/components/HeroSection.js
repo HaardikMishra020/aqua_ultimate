@@ -3,8 +3,14 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Shield, Truck, CreditCard, Divide } from 'lucide-react';
 import ModelImg from '../assets/Model.png';
 import WAVES from 'vanta/dist/vanta.waves.min'
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
+import { useMediaQuery } from 'react-responsive';
+
 
 const HeroSection = () => {
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
   const handleBuyNow = () => {
     // TODO: Replace with actual Amazon URL for the main product
     const amazonUrl = 'https://www.amazon.in/gp/product/B0DCJKY89P'
@@ -22,6 +28,8 @@ const HeroSection = () => {
     })
   },[]);
 
+  const cldmodel=cld.image('Model_t1ftpm').format("auto").quality("auto").resize(scale().width(500))
+  const cldmodelmob=cld.image('a04-removebg-preview_aqr7al').format("auto").quality("auto").resize(scale().width(500))
   return (
     // <div className= 'app'>
     //   <div className='bg' id='home'></div>
@@ -35,16 +43,20 @@ const HeroSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12  items-center">
           {/* Product Image - Left Side */}
           <div className="relative flex justify-center items-center lg:justify-start order-1 lg:order-1">
-            <img
-              src={ModelImg}
+            {isMobile ?(
+              <AdvancedImage key={cldmodelmob} cldImg={cldmodelmob}
+              alt="Aqua Ultimate Product"
+              style={{ height: 'auto', width: '90vw', maxWidth: '100%', objectFit: 'contain', borderRadius: '2rem' }}
+              className="block"
+            />
+            ):(<AdvancedImage key={cldmodel} cldImg={cldmodel}
               alt="Aqua Ultimate Product"
               style={{ height: '88vh', width: 'auto', maxWidth: '100%', objectFit: 'contain', borderRadius: '2rem' }}
               className="block"
-              draggable={false}
-            />
+            />)}
           </div>
 
           {/* Content - Right Side */}
@@ -59,7 +71,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h1 className="text-outline-black text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-outline-black text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Smart Water Conditioner for Healthy Living
                 {/* <span className="text-outline-black text-white">Healthy Living</span> */}
               </h1>
@@ -69,7 +81,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-white mb-8 max-w-lg mx-auto lg:mx-0"
+              className="text-md md:text-xl text-white mb-8 max-w-lg mx-auto lg:mx-0"
             >
               Transform your hard water into soft, healthy water that's gentle on your skin, hair, and appliances. 
               Experience the difference with Aqua Ultimate.
@@ -97,9 +109,9 @@ const HeroSection = () => {
                     Buy Now
                     <ExternalLink size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button className="btn-secondary">
+                  {/* <button className="btn-secondary">
                     Learn More
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </motion.div>

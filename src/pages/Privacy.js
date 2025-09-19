@@ -1,12 +1,12 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import AboutUs from '../components/AboutUs';
+import PrivacyPolicy from '../components/PrivacyPolicy';
 
-export default function About() {
+export default function Privacy() {
     return (
         <div className="min-h-screen bg-background">
             <Navbar home={false} />
-            <AboutUs/>
+            <PrivacyPolicy/>
             <Footer/>
         </div>
     );

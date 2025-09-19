@@ -44,7 +44,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar home={true} />
       <HeroSection />
       <WaterConditionerInfo />
       <FeaturesBar />
@@ -55,7 +55,7 @@ function Home() {
       <MapSection />
       <Testimonials />
       <FAQSection />
-      {/* <AdditionalInfo /> */}
+      <AdditionalInfo />
       {/* <Certifications /> */}
       <Footer />
       <WhatsAppButton />

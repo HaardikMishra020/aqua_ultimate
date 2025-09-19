@@ -4,8 +4,8 @@ import { MessageCircle } from 'lucide-react';
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = '919876543210'; // Replace with actual WhatsApp number
-    const message = encodeURIComponent('Hi! I\'m interested in Aqua Ultimate water conditioner. Can you provide more information?');
+    const phoneNumber = '9219265755'; // Replace with actual WhatsApp number
+    const message = encodeURIComponent('Hi! I\'m interested in Aqua Ultimate Water Conditioner. Can you provide more information?');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };

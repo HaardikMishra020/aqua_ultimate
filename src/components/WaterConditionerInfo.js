@@ -8,7 +8,7 @@ const WaterConditionerInfo = () => {
         <div className="flex-1 w-full md:w-1/2 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">What is a Water Conditioner?</h2>
           <p className="text-lg text-white leading-relaxed">
-            Water conditioners are innovative devices that neutralize hard minerals in your water, preventing scale buildup without removing healthy minerals. They help soaps and shampoos lather better, protect your appliances and plumbing, and require zero maintenance—making them a smart, hassle-free solution for healthier water throughout your home.
+            Water conditioners are innovative devices that neutralize hard minerals in your water, preventing hair and skin problems without removing healthy minerals which are essential for your body. They help soaps and shampoos lather better, protect your appliances and underground pipelines, and require zero maintenance—making them a smart, hassle-free solution for healthier water throughout your home.
           </p>
         </div>
         {/* Right Side: Video */}

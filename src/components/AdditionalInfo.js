@@ -14,9 +14,9 @@ const AdditionalInfo = () => {
         title: 'Get in Touch',
         description: 'Have questions? We’re here to help.',
         details: [
-          'Phone Number - +91-9219265755',
+          'Phone Number - +91-9219265755 , +91-7217438330',
           'Office Address - 73 Roshan Bagh, Dayal Bagh, Agra, Uttar Pradesh 282005',
-          'Email Address - aquaultimate13@gmail.com',
+          'Email Address - aquaultimate11@gmail.com',
         ],
         videoUrl: null, // Add video URL if available
         map:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3547.9009750233545!2d77.99661047589507!3d27.222258646718604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397479e0f9283c25%3A0x5d8cd89f945e38ce!2sAqua%20Ultimate%20Water%20Conditioner!5e0!3m2!1sen!2sin!4v1755366500613!5m2!1sen!2sin'
@@ -27,14 +27,14 @@ const AdditionalInfo = () => {
       title: 'Warranty Details',
       icon: Shield,
       content: {
-        title: '15-Year Comprehensive Warranty',
-        description: 'We stand behind our products with one of the industry\'s longest warranty periods.',
+        title: '2-Year Comprehensive Warranty',
+        description: 'Here\'s all you need to know about the warranty of Aqua Ultimate Water Conditioner.',
         details: [
-          'Full coverage for all mechanical parts',
-          'Free replacement of defective components',
-          'No hidden terms or conditions',
-          'Transferable warranty to new homeowners',
-          '24/7 customer support for warranty claims'
+          'The Aqua Ultimate Water Conditioner comes with a 2-year replacement warranty for verified performance issues.',
+          'Customers must use the Aqua Ultimate Power Tester App (Android) to check device performance. If the device generates low power (as verified by the app), the company will provide a replacement within the warranty period.',
+          'The device requires no servicing or maintenance. Customers are encouraged to test the device periodically with the app to ensure smooth functioning.',
+          'The warranty does not cover damages caused by: Improper or incorrect installation, Misuse or rough handling, Physical damage, Unauthorized modifications',
+          'If a verified issue is found, the company will replace the product free of cost within the warranty period. No returns or refunds are applicable once the product has been used'
         ],
         videoUrl: null,
         map:null // Add video URL if available
@@ -45,37 +45,36 @@ const AdditionalInfo = () => {
       title: 'Installation Details',
       icon: Wrench,
       content: {
-        title: 'Professional Installation Service',
-        description: 'Our certified technicians ensure proper installation for optimal performance.',
+        title: 'All about Installation',
+        description: 'Our Product Installation process is simple and can be done in 3 easy steps',
         details: [
-          'Free professional installation included',
-          'Certified technicians with 5+ years experience',
-          'Installation completed within 2-4 hours',
-          'Post-installation testing and verification',
-          'Comprehensive installation guide provided'
+          'Make two cuts in the main water pipeline equal to the length of the device.',
+          'Fix the CPVC sockets (provided with the device) onto both ends of the pipeline.',
+          'Place the Aqua Ultimate Water Conditioner between the two sockets and apply the adhesive solution to both ends for a secure fit.',
+          'Tip: You can ask any local plumber to easily follow these steps for installation.',
         ],
         videoUrl: null,
         map:null // Add video URL if available
       }
     },
-    {
-      id: 'referral',
-      title: 'Referral Program',
-      icon: Users,
-      content: {
-        title: 'Earn While You Share',
-        description: 'Join our referral program and earn rewards for every successful referral.',
-        details: [
-          '₹2,000 cash reward per successful referral',
-          'No limit on number of referrals',
-          'Rewards paid within 30 days of installation',
-          'Easy referral tracking system',
-          'Exclusive member benefits and discounts'
-        ],
-        videoUrl: null,
-        map:null // Add video URL if available
-      }
-    }
+    // {
+    //   id: 'referral',
+    //   title: 'Referral Program',
+    //   icon: Users,
+    //   content: {
+    //     title: 'Earn While You Share',
+    //     description: 'Join our referral program and earn rewards for every successful referral.',
+    //     details: [
+    //       'Join Easily – WhatsApp “Referral” to +91-9760574402 and get your unique referral code.',
+    //       'Share with Friends – Tell your friends and family about Aqua Ultimate Water Conditioner.',
+    //       'Earn Cashback Together – When your friend buys, both of you get ₹500 cashback.',
+    //       'No Limits – Refer as many people as you want and keep earning.',
+    //       'Win-Win Deal – Simple, rewarding, and beneficial for both you and your friends.'
+    //     ],
+    //     videoUrl: null,
+    //     map:null // Add video URL if available
+    //   }
+    // }
   ];
 
   const currentContent = options.find(option => option.id === selectedOption)?.content;
@@ -94,7 +93,7 @@ const AdditionalInfo = () => {
             Additional Information
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Everything you need to know about warranty, installation, and our referral program
+            Everything you need to know about warranty, and installation
           </p>
         </motion.div>
 
@@ -145,12 +144,13 @@ const AdditionalInfo = () => {
                 )}
 
                   {currentContent.map && (
-                    <div className="relative aspect-video overflow-hidden">
-                   <iframe src={currentContent.map} 
-                   width="500" 
-                   height="400"  
-                   allowfullscreen="" 
-                   referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div className="relative w-full pb-[56.25%]">
+                   <iframe
+                    src={currentContent.map}
+                    className="absolute top-0 left-0 w-full h-full rounded-lg"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
                   
                   )}

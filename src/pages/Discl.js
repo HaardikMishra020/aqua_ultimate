@@ -1,12 +1,12 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import AboutUs from '../components/AboutUs';
+import Disclaimer from '../components/Disclaimer';
 
-export default function About() {
+export default function Discl() {
     return (
         <div className="min-h-screen bg-background">
             <Navbar home={false} />
-            <AboutUs/>
+            <Disclaimer/>
             <Footer/>
         </div>
     );

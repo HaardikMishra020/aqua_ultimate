@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 
+
 const BeforeAfter = () => {
   const [current, setCurrent] = useState(0);
 
@@ -14,14 +15,14 @@ const BeforeAfter = () => {
         description:
           "Hard water often leaves skin dry, itchy, and irritated. Daily showers can strip away natural oils, making your skin feel rough and uncomfortable.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1752999194/generated-image_3_pp2omw.png",
+          "generated-image_3_pp2omw",
       },
       after: {
         title: "After",
         description:
           "With conditioned water, your skin stays naturally moisturized and smooth. Customers notice softer, healthier skin that feels nourished after every wash.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1752999195/generated-image_2_l55aqk.png",
+          "generated-image_2_l55aqk",
       },
     },
     {
@@ -31,14 +32,14 @@ const BeforeAfter = () => {
         description:
           "Hard water causes mineral buildup that makes hair brittle, dull, and difficult to manage. Even good shampoos often fail to lather properly.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1752990217/generated-image_hzm8uz.png",
+          "generated-image_hzm8uz",
       },
       after: {
         title: "After",
         description:
           "With conditioned water, hair feels softer, shinier, and easier to style. Customers experience healthier growth and fewer bad hair days.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1752990217/generated-image_1_p1wxy1.png",
+          "generated-image_1_p1wxy1",
       },
     },
     {
@@ -48,14 +49,14 @@ const BeforeAfter = () => {
         description:
           "Hard water leads to heavy scale deposits inside pipes. Appliances like geysers and washing machines lose efficiency and often break down sooner due to clogging.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1755703327/generated-image_12_gfsrwh.png",
+          "generated-image_12_gfsrwh",
       },
       after: {
         title: "After",
         description:
           "With conditioned water, scale buildup is prevented. Pipes and appliances last longer, and your bathroom looks cleaner with minimal maintenance.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1755703344/generated-image_13_bymtao.png",
+          "generated-image_13_bymtao",
       },
     },
     {
@@ -65,14 +66,14 @@ const BeforeAfter = () => {
         description:
           "Excess salts and minerals in hard water can hinder plant growth. Leaves turn yellow and soil becomes less fertile over time.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1753000429/generated-image_5_aqoejo.png",
+          "generated-image_5_aqoejo",
       },
       after: {
         title: "After",
         description:
           "Using conditioned water helps plants absorb nutrients more effectively. The result is greener leaves, stronger roots, and faster, healthier growth.",
         imageUrl:
-          "https://res.cloudinary.com/dvragaic8/image/upload/v1753000430/generated-image_4_p4fccm.png",
+          "generated-image_4_p4fccm",
       },
     },
   ];
@@ -99,7 +100,7 @@ const BeforeAfter = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-2">
             See the Difference
           </h2>
-          <p className="text-gray-600 text-xl">
+          <p className="text-gray-600 text-md md:text-xl">
           Use the slider (◀ ▶) to experience how Aqua Ultimate Water Conditioner improves your everyday life.
           </p>
         </motion.div>
@@ -159,12 +160,12 @@ const BeforeAfter = () => {
             </h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-xl text-red-600">{slides[current].before.title}</h4>
-                <p className="text-white text-xl">{slides[current].before.description}</p>
+                <h4 className="text-lg md:text-xl text-red-600">{slides[current].before.title}</h4>
+                <p className="text-white text-lg md:text-xl">{slides[current].before.description}</p>
               </div>
               <div>
-                <h4 className="text-xl text-green-600">{slides[current].after.title}</h4>
-                <p className="text-white text-xl">{slides[current].after.description}</p>
+                <h4 className="text-lg md:text-xl text-green-600">{slides[current].after.title}</h4>
+                <p className="text-white text-lg md:text-xl">{slides[current].after.description}</p>
               </div>
             </div>
           </div>
