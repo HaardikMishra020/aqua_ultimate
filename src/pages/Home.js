@@ -14,7 +14,6 @@ import WaterConditionerInfo from '../components/WaterConditionerInfo';
 import AdditionalInfo from '../components/AdditionalInfo';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-import Trial from '../components/Trial';
 
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Home from "./pages/Home";
@@ -49,7 +48,6 @@ function Home() {
       <WaterConditionerInfo />
       <FeaturesBar />
       <HowItWorks />
-      {/* <Trial/> */}
       <BeforeAfter />
       <ProductsSection />
       <MapSection />
