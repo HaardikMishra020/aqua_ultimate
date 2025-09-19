@@ -45,7 +45,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-blue-900 py-16 lg:py-24">
+    <section id = "faqs" className="bg-blue-900 py-16 lg:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

@@ -14,8 +14,8 @@ const Footer = () => {
     support: [
       { name: 'Installation Guide', href: '#additional-info' },
       { name: 'Warranty', href: '#additional-info' },
-      { name: 'Customer Support', href: '#' },
-      { name: 'FAQ', href: '#' }
+      { name: 'Customer Support', href: '#faqs' },
+      { name: 'FAQ', href: '#faqs' }
     ],
     company: [
       { name: 'About Us', href: '#' },
@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-2">
-                <span className="text-accent font-bold text-sm">AU</span>
+                <img src="/logo.png" alt="Aqua Ultimate Logo"/>
               </div>
               <span className="font-bold text-xl">Aqua Ultimate</span>
             </div>
