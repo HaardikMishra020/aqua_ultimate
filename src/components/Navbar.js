@@ -16,9 +16,9 @@ const Navbar = ({home}) => {
   }, []);
 
   const navLinks = [
+    { name: 'Products', href: '#products' },
     { name: 'How it Works', href: '#how-it-works' },
     { name: 'Reviews', href: '#reviews' },
-    { name: 'Products', href: '#products' },
     { name: 'Contact Us', href: '#additional-info' },
 
   ];
@@ -89,6 +89,7 @@ const Navbar = ({home}) => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</Link>
             {home && navLinks.map((link) => (
               <a
                 key={link.name}
@@ -99,7 +100,7 @@ const Navbar = ({home}) => {
                 {link.name}
               </a>
             ))}
-            <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</Link>
+            
             <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">About Us</Link>
             {/* <div className="flex items-center space-x-4 pt-4 border-t border-gray-800 mt-4">
               <button className="text-gray-300 hover:text-white p-2 rounded-md transition-colors duration-200">

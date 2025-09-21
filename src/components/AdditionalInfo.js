@@ -104,7 +104,7 @@ const AdditionalInfo = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-gray-800 rounded-2xl p-8"
+            className="bg-gray-800 rounded-2xl p-8 order-2 lg:order-1"
           >
             {currentContent && (
               <>
@@ -174,7 +174,7 @@ const AdditionalInfo = () => {
           </motion.div>
 
           {/* Right Side - Options */}
-          <div className="space-y-4">
+          <div className="space-y-4 order-1 lg:order-2">
             {options.map((option) => {
               const IconComponent = option.icon;
               return (
