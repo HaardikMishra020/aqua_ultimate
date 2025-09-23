@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Menu, X } from 'lucide-react';
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
 
 const Navbar = ({home}) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,6 +26,8 @@ const Navbar = ({home}) => {
 
   ];
 
+  const cldImg=cld.image('logo_geplrr').format("auto").quality("auto").resize(scale().width(100))
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/95 backdrop-blur-md' : 'bg-black'
@@ -33,8 +38,7 @@ const Navbar = ({home}) => {
           <a href="/">
           <div className="flex-shrink-0">
             <div className="flex items-center">
-              
-              <img src="/logo.png" alt="Aqua Ultimate Logo" className="w-12 h-auto object-contain mr-3" />
+              <AdvancedImage cldImg={cldImg} className="w-12 h-auto object-contain mr-3"/>
               <div className="flex flex-col leading-tight">
                 <span className="text-white font-bold text-md md:text-2xl font-cinzel">AQUA ULTIMATE</span>
                 {/* <span className="text-white text-xs md:text-sm font-league">SOFTENING SOLUTIONS</span> */}

@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Facebook,  Instagram,  Send, Youtube } from 'lucide-react';
+import { cld } from '../utils/cloudinary';
+import {AdvancedImage} from '@cloudinary/react';
+import { scale } from "@cloudinary/url-gen/actions/resize";
 
 const Footer = () => {
   const footerLinks = {
@@ -30,6 +33,7 @@ const Footer = () => {
     { icon: Instagram, href: 'https://www.instagram.com/aqua_ultimate11/', label: 'Instagram' },
     { icon: Youtube, href: 'https://www.youtube.com/@aquaultimate17', label: 'Youtube' }
   ];
+  const cldImg=cld.image('logo_geplrr').format("auto").quality("auto").resize(scale().width(100))
 
   return (
     <footer className="bg-black text-white">
@@ -38,9 +42,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-2">
-                <img src="/logo.png" alt="Aqua Ultimate Logo"/>
-              </div>
+              <AdvancedImage cldImg={cldImg} className="w-8 h-auto object-contain mr-3" />
               <span className="font-bold text-xl">Aqua Ultimate</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
