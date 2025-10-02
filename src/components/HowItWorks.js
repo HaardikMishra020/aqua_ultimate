@@ -7,7 +7,7 @@ import {AdvancedImage} from '@cloudinary/react';
 const HowItWorks = () => {
   const cldwork=cld.image('working_qhpa9o').format("auto").quality("auto")
   return (
-    <section id="how-it-works" className="bg-[#f5f5f7] pt-20">
+    <section id="how-it-works" className="bg-[#f5f5f7] py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ const HowItWorks = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
             How Water Conditioner Works
           </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
+          <p className="text-gray-600 text-md md:text-xl mx-auto">
             Our innovative technology transforms hard water into soft, healthy water in just seconds
           </p>
         </motion.div>

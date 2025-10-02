@@ -87,7 +87,7 @@ const BeforeAfter = () => {
   };
 
   return (
-<section className="bg-blue-200 py-20">
+<section className="bg-blue-200 py-12">
       <div className="max-w-6xl mx-auto px-4">
         {/* Heading */}
         <motion.div
@@ -108,7 +108,7 @@ const BeforeAfter = () => {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Column - Carousel */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center order-2 lg:order-1">
             <motion.div
               key={current}
               initial={{ opacity: 0, x: 50 }}
@@ -154,18 +154,18 @@ const BeforeAfter = () => {
           </div>
 
           {/* Right Column - Details Box */}
-          <div className="bg-gray-900 rounded-3xl py-12 px-4 sm:px-6 lg:px-8">
-            <h3 className="text-4xl font-semibold text-white mb-6">
+          <div className="bg-gray-900 rounded-3xl py-6 md:py-12 px-4 sm:px-6 lg:px-8 order-1 lg:order-2">
+            <h3 className="text-xl md:text-4xl font-semibold text-white mb-2">
               {slides[current].title}
             </h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-lg md:text-xl text-red-600">{slides[current].before.title}</h4>
-                <p className="text-white text-lg md:text-xl">{slides[current].before.description}</p>
+                <h4 className="text-md md:text-xl text-red-600">{slides[current].before.title}</h4>
+                <p className="text-white text-sm md:text-xl">{slides[current].before.description}</p>
               </div>
               <div>
-                <h4 className="text-lg md:text-xl text-green-600">{slides[current].after.title}</h4>
-                <p className="text-white text-lg md:text-xl">{slides[current].after.description}</p>
+                <h4 className="text-md md:text-xl text-green-600">{slides[current].after.title}</h4>
+                <p className="text-white text-sm md:text-xl">{slides[current].after.description}</p>
               </div>
             </div>
           </div>

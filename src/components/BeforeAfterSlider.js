@@ -30,7 +30,7 @@ const BeforeAfterSlider = ({ before, after }) => {
         className="relative 
     w-[90vw] h-[40vh]    /* default: small screens → wide and short */
     sm:w-[80vw] sm:h-[50vh] 
-    lg:w-[30vw] lg:h-[70vh]   /* large screens → original size */
+    lg:w-[30vw] lg:h-[60vh]   /* large screens → original size */
     rounded-2xl m-auto overflow-hidden select-none"
         onMouseMove={handleMove}
         onMouseDown={handleStart}

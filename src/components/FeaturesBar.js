@@ -53,7 +53,7 @@ const FeaturesBar = () => {
   ];
 
   return (
-    <section id="features" className="bg-yellow-500 py-16">
+    <section id="features" className="bg-yellow-500 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ const FeaturesBar = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
             Why Choose Aqua Ultimate Water Conditioner?
           </h2>
-          <p className=" text-xl max-w-2xl mx-auto">
+          <p className=" text-md md:text-xl mx-auto">
             Experience the difference with our innovative water conditioning technology
           </p>
         </motion.div>

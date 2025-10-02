@@ -80,7 +80,7 @@ const AdditionalInfo = () => {
   const currentContent = options.find(option => option.id === selectedOption)?.content;
 
   return (
-    <section className="bg-gray-900 text-white py-20" id="additional-info">
+    <section className="bg-gray-900 text-white py-12" id="additional-info">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

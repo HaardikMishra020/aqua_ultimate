@@ -52,7 +52,7 @@ const MapSection = () => {
   }, []);
 
   return (
-    <section className="bg-blue-50 py-16 lg:py-24" id="maps">
+    <section className="bg-blue-50 py-12" id="maps">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Map Container - Left Side */}
@@ -287,7 +287,7 @@ const MapSection = () => {
                 </h2>
               </div>
 
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-md md:text-lg text-gray-600 mb-8 leading-relaxed">
                 From the bustling streets of Mumbai to the tech hubs of Bangalore, 
                 families across India are choosing Aqua Ultimate for their water conditioning needs. 
                 Join thousands of satisfied customers who have transformed their water quality.

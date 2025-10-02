@@ -33,7 +33,7 @@ const HeroSection = () => {
     // <div className= 'app'>
     //   <div className='bg' id='home'></div>
     // </div>
-    <section id="home" className="relative max-h-screen flex items-center overflow-hidden pt-10">
+    <section id="home" className="relative max-h-screen flex items-center overflow-hidden pt-12">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 bg-accent rounded-full blur-3xl"></div>

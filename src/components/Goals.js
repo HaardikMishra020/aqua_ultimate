@@ -24,7 +24,7 @@ export default function Goals() {
       },
     ];
     return (
-      <section className="py-16">
+      <section className="py-12">
         <div className="max-w-6xl mx-auto text-center px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
             Our Goals & Values
@@ -41,7 +41,7 @@ export default function Goals() {
                 rounded-full h-[50vh]`}
             >
               <div className="text-lg mb-2">
-                <AdvancedImage key={cldGoal} cldImg={cldGoal} className="w-full h-40"/>
+                <AdvancedImage key={cldGoal} cldImg={cldGoal} className="w-20 md:w-40 h-full"/>
                 </div>
               <h3 className="font-semibold text-lg mb-2">{goal.title}</h3>
               <p className="text-md">{goal.desc}</p>

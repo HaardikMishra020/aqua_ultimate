@@ -212,7 +212,7 @@ const ProductsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Our Range of Products
           </h2>
-          <p className="text-xl text-white max-w-3xl mx-auto">
+          <p className="text-md md:text-xl text-white max-w-3xl mx-auto">
             Discover our comprehensive range of water treatment solutions designed to provide you with the purest, healthiest water possible.
           </p>
         </motion.div>
@@ -300,7 +300,7 @@ const ProductsSection = () => {
                         <span className="text-2xl font-bold text-gray-400 line-through">
                           {formatPrice(product.priceINR)}
                         </span>
-                        <span className="text-2xl font-bold text-accent">{formatPrice(product.priceActual)}</span>
+                        <span className="text-2xl font-bold text-gray-900">{formatPrice(product.priceActual)}</span>
                         {/* Optionally, calculate and show percent off */}
                       </>
                     )

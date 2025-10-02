@@ -72,7 +72,7 @@ const Testimonials = () => {
   const cldImg=cld.image(`${testimonials[currentTestimonial].img}`).format("auto").quality("auto").resize(scale().width(700))
 
   return (
-    <section id="reviews" className="py-20 bg-blue-200">
+    <section id="reviews" className="py-12 bg-blue-200">
       <div {...handlers} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
             What Our Customers Say
           </h2>
-          <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+          <p className="text-gray-600 text-md md:text-xl max-w-3xl mx-auto">
             Real testimonials from families who have experienced the Aqua Ultimate difference
           </p>
         </motion.div>
