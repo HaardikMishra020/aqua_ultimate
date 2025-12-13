@@ -95,8 +95,8 @@ const HeroSection = () => {
             >
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start mb-2 space-x-3">
-                  <span className="text-2xl md:text-3xl font-semibold text-gray-400 line-through">₹24,500</span>
-                  <span className="text-3xl md:text-4xl font-bold text-gray-900">₹18,500</span>
+                  <span className="text-xl md:text-2xl font-semibold text-gray-500">Starting from</span>
+                  <span className="text-3xl md:text-4xl font-bold text-gray-900">₹9,990</span>
                   <span className="text-base md:text-lg font-semibold text-green-600 bg-green-100 rounded px-2 py-0.5 ml-2">25% OFF</span>
                 </div>
                 <div className="text-sm text-gray-600 mb-4">2 Years Warranty • 15 Years Lifetime (Approx)</div>
