@@ -20,9 +20,6 @@ const ProductsSection = () => {
     acc[key] = categories[idx];
     return acc;
   }, {});
-  const labelToCategoryKey = Object.fromEntries(
-    Object.entries(categoryKeyToLabel).map(([k, v]) => [v, k])
-  );
 
   // Get saved tab from localStorage or default to first key
   const getInitialTab = () => {
