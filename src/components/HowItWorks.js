@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cld } from '../utils/cloudinary';
-import {AdvancedImage} from '@cloudinary/react';
+import { AdvancedImage } from '@cloudinary/react';
+import { useTranslation } from 'react-i18next';
 
 
 const HowItWorks = () => {
   const cldwork=cld.image('working_qhpa9o').format("auto").quality("auto")
+  const { t } = useTranslation();
   return (
     <section id="how-it-works" className="bg-[#f5f5f7] py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,10 +19,10 @@ const HowItWorks = () => {
           className="text-center mb-5"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
-            How Water Conditioner Works
+            {t('howItWorks.title')}
           </h2>
           <p className="text-gray-600 text-md md:text-xl mx-auto">
-            Our innovative technology transforms hard water into soft, healthy water in just seconds
+            {t('howItWorks.description')}
           </p>
         </motion.div>
 

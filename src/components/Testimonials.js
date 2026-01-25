@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Star} from 'lucide-react';
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,12 +11,13 @@ import { useSwipeable } from "react-swipeable";
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const { t } = useTranslation();
 
   const testimonials = [
     {
       name: 'Mr. Harish Kumar',
       rating: 5,
-      text: 'Aqua Ultimate Water Conditioner has completely transformed our water quality. My skin feels so much softer and my hair is no longer dry and frizzy. The installation was simple and the results were immediate. Highly recommend!',
+      text: t('testimonials.reviews.harishKumar'),
       avatar: 'HK',
       img:'1000008624_czfotd',
       videoUrl:null,
@@ -23,7 +25,7 @@ const Testimonials = () => {
     {
       name: 'Mr. Anil Solanki',
       rating: 5,
-      text: 'After struggling with hard water for years, This product was a game-changer. Our bathroom tiles stay clean, appliances last longer, and the water feels amazing. Best investment for our home!',
+      text: t('testimonials.reviews.anilSolanki'),
       avatar: 'AS',
       img:'1000008625_tiufyj',
       videoUrl:null,
@@ -31,7 +33,7 @@ const Testimonials = () => {
     {
       name: 'Mr Vinod Bhadauria',
       rating: 4,
-      text: 'I was skeptical at first, but the difference is noticable. My kids\' skin rashes have completely disappeared, and our clothes feel softer after washing. Aqua Ultimate Water Conditioner does what it promises.',
+      text: t('testimonials.reviews.vinodBhadauria'),
       avatar: 'VB',
       img:'1000008626_j98isl',
       videoUrl:null,
@@ -39,7 +41,7 @@ const Testimonials = () => {
     {
       name: 'Ms. Swati Singh',
       rating: 5,
-      text: 'I’ve been using Aqua Ultimate Water Conditioner for 2 years now, and the difference is amazing. The water feels softer, my hair doesn’t get dry anymore, and even my washing machine is running better. The best part is – it’s completely maintenance-free. Overall, I’m really happy with the product',
+      text: t('testimonials.reviews.swatiSingh'),
       avatar: 'SS',
       img:null,
       videoUrl:'https://www.youtube.com/embed/yDxKwhVQ-C0?si=Crj6zvqzSVl1CMso&amp;start=0',
@@ -82,10 +84,10 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
-            What Our Customers Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-gray-600 text-md md:text-xl max-w-3xl mx-auto">
-            Real testimonials from families who have experienced the Aqua Ultimate difference
+            {t('testimonials.subtitle')}
           </p>
         </motion.div>
 

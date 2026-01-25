@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ExternalLink, Eye, Heart } from 'lucide-react';
 import { cld } from '../utils/cloudinary';
@@ -6,8 +6,31 @@ import {AdvancedImage} from '@cloudinary/react';
 import { scale } from "@cloudinary/url-gen/actions/resize";
 
 
+import { useTranslation } from 'react-i18next';
+
+const CATEGORY_KEYS = ['Water Conditioner', 'Whole House Water Filter', 'RO System', 'Water Softener'];
+
 const ProductsSection = () => {
-  const [activeTab, setActiveTab] = useState('Water Conditioner');
+  const { t, i18n } = useTranslation();
+  // Get categories in the correct order for display (array of translated names)
+  const categories = t('productsSection.categories', { returnObjects: true });
+
+  // Map category keys to translated labels
+  const categoryKeyToLabel = CATEGORY_KEYS.reduce((acc, key, idx) => {
+    acc[key] = categories[idx];
+    return acc;
+  }, {});
+  const labelToCategoryKey = Object.fromEntries(
+    Object.entries(categoryKeyToLabel).map(([k, v]) => [v, k])
+  );
+
+  // Get saved tab from localStorage or default to first key
+  const getInitialTab = () => {
+    const savedKey = localStorage.getItem('selectedCategoryKey');
+    return savedKey && CATEGORY_KEYS.includes(savedKey) ? savedKey : CATEGORY_KEYS[0];
+  };
+
+  const [activeTabKey, setActiveTabKey] = useState(getInitialTab());
   const [visibleCount, setVisibleCount] = useState(3); // default for small screens
   const [isMobile, setIsMobile] = useState(false);
   const [likes, setLikes] = useState({});
@@ -19,6 +42,19 @@ const ProductsSection = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Save selected tab key to localStorage
+  useEffect(() => {
+    localStorage.setItem('selectedCategoryKey', activeTabKey);
+  }, [activeTabKey]);
+
+  // When language changes, keep the same key but update the label
+  useEffect(() => {
+    // If the saved key is not valid (e.g., translation file changed), fallback
+    if (!CATEGORY_KEYS.includes(activeTabKey)) {
+      setActiveTabKey(CATEGORY_KEYS[0]);
+    }
+    // eslint-disable-next-line
+  }, [i18n.language]);
 
   const handleLike = (id) => {
     setLikes((prev) => ({
@@ -150,11 +186,22 @@ const ProductsSection = () => {
       "type":"existing",
       "imgUrl":"Untitled_design_4_c0hwcv"
     }
+    ,
+    {
+      "id":13,
+      "name": "Easy Flush Sand Filter",
+      "priceINR": 15990,
+      "currency": "INR",
+      "category": "Whole House Water Filter",
+      "rating": 5,
+      "type": "existing",
+      "imgUrl": "Flush_Filter_Image_ybaddf"
+    }
   ];
 
-  const categories = ['Water Conditioner', 'RO System', 'Water Softener'];
   
-  const filteredProducts = products.filter(product => product.category === activeTab);
+  // Use category key for filtering (strict match)
+  const filteredProducts = products.filter(product => product.category === activeTabKey);
 
   const formatPrice = (price) => {
     if (price === null || price === undefined) return '';
@@ -210,10 +257,10 @@ const ProductsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Range of Products
+            {t('productsSection.title')}
           </h2>
           <p className="text-md md:text-xl text-white max-w-3xl mx-auto">
-            Discover our comprehensive range of water treatment solutions designed to provide you with the purest, healthiest water possible.
+            {t('productsSection.subtitle')}
           </p>
         </motion.div>
 
@@ -224,17 +271,17 @@ const ProductsSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
-          {categories.map((category) => (
+          {CATEGORY_KEYS.map((key) => (
             <button
-              key={category}
-              onClick={() => setActiveTab(category)}
+              key={key}
+              onClick={() => setActiveTabKey(key)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeTab === category
+                activeTabKey === key
                   ? 'bg-white text-grey-700 shadow-lg'
                   : 'bg-black text-white hover:bg-white hover:text-black border border-gray-200'
               }`}
             >
-              {category}
+              {categoryKeyToLabel[key]}
             </button>
           ))}
         </motion.div>
@@ -279,7 +326,7 @@ const ProductsSection = () => {
               {/* Product Info */}
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-                  {product.name}
+                  {t(`productsSection.productNames.${product.name}`)}
                 </h3>
                 
                 {/* Rating */}
@@ -351,7 +398,7 @@ const ProductsSection = () => {
               onClick={() => setVisibleCount((prev) => prev + 3)}
               className="px-6 py-3 bg-white rounded-lg font-semibold transition-all duration-300 shadow-md"
             >
-              See More
+              {t('productsSection.seeMore')}
             </button>
           </div>
         )}
@@ -363,8 +410,8 @@ const ProductsSection = () => {
             className="text-center py-12"
           >
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-white mb-2">No products found</h3>
-            <p className="text-white">We're working on adding products to this category.</p>
+            <h3 className="text-xl font-semibold text-white mb-2">{t('productsSection.noProducts.title')}</h3>
+            <p className="text-white">{t('productsSection.noProducts.desc')}</p>
           </motion.div>
         )}
       </div>
@@ -372,4 +419,4 @@ const ProductsSection = () => {
   );
 };
 
-export default ProductsSection; 
+export default ProductsSection;

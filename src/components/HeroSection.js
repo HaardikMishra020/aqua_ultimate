@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import WAVES from 'vanta/dist/vanta.waves.min'
@@ -9,6 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
   const handleBuyNow = () => {
     // TODO: Replace with actual Amazon URL for the main product
@@ -70,10 +72,10 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h1 className="text-outline-black text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Smart Water Conditioner for Healthy Living
-                {/* <span className="text-outline-black text-white">Healthy Living</span> */}
-              </h1>
+                <h1 className="text-outline-black text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                  {t('hero.title')}
+                  {/* <span className="text-outline-black text-white">Healthy Living</span> */}
+                </h1>
             </motion.div>
 
             <motion.p
@@ -82,8 +84,7 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-md md:text-xl text-white mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Transform your hard water into soft, healthy water that's gentle on your skin, hair, and appliances. 
-              Experience the difference with Aqua Ultimate.
+              {t('hero.description')}
             </motion.p>
 
             {/* Price & Add to Cart Block */}
@@ -95,17 +96,17 @@ const HeroSection = () => {
             >
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start mb-2 space-x-3">
-                  <span className="text-xl md:text-2xl font-semibold text-gray-500">Starting from</span>
-                  <span className="text-3xl md:text-4xl font-bold text-gray-900">₹9,990</span>
-                  <span className="text-base md:text-lg font-semibold text-green-600 bg-green-100 rounded px-2 py-0.5 ml-2">25% OFF</span>
+                  <span className="text-xl md:text-2xl font-semibold text-gray-500">{t('hero.startingFrom')}</span>
+                  <span className="text-3xl md:text-4xl font-bold text-gray-900">{t('hero.price')}</span>
+                  <span className="text-base md:text-lg font-semibold text-green-600 bg-green-100 rounded px-2 py-0.5 ml-2">{t('hero.discount')}</span>
                 </div>
-                <div className="text-sm text-gray-600 mb-4">2 Years Warranty • 15 Years Lifetime (Approx)</div>
+                <div className="text-sm text-gray-600 mb-4">{t('hero.warranty')}</div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <button 
                     onClick={handleBuyNow}
                     className="btn-primary flex items-center justify-center group"
                   >
-                    Buy Now
+                    {t('hero.buyNow')}
                     <ExternalLink size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
                   {/* <button className="btn-secondary">

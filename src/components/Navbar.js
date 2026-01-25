@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { Menu, X } from 'lucide-react';
 import { cld } from '../utils/cloudinary';
@@ -18,13 +19,20 @@ const Navbar = ({home}) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const { i18n } = useTranslation();
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const { t } = useTranslation();
   const navLinks = [
-    { name: 'Products', href: '#products' },
-    { name: 'How it Works', href: '#how-it-works' },
-    { name: 'Reviews', href: '#reviews' },
-    { name: 'Contact Us', href: '#additional-info' },
-
+    { name: t('navbar.products'), href: '#products' },
+    { name: t('navbar.howItWorks'), href: '#how-it-works' },
+    { name: t('navbar.reviews'), href: '#reviews' },
+    { name: t('navbar.contact'), href: '#additional-info' },
   ];
+
+  const handleLanguageChange = (lng) => {
+    i18n.changeLanguage(lng);
+    setShowLangDropdown(false);
+  };
 
   const cldImg=cld.image('logo_geplrr').format("auto").quality("auto").resize(scale().width(100))
 
@@ -51,7 +59,7 @@ const Navbar = ({home}) => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Link to="/" className='text-white ml-4'>Home</Link>
+              <Link to="/" className='text-white ml-4'>{t('navbar.home')}</Link>
               {home &&
               navLinks.map((link) => (
                 <a
@@ -63,7 +71,33 @@ const Navbar = ({home}) => {
                 </a>
               ))
               }
-              <Link to="/about" className="text-white ml-4">About Us</Link>
+              <Link to="/about" className="text-white ml-4">{t('navbar.about')}</Link>
+              {/* Language Switcher Dropdown */}
+              <div className="ml-6 relative">
+                <button
+                  onClick={() => setShowLangDropdown((prev) => !prev)}
+                  className="px-2 py-1 rounded text-sm font-semibold border bg-transparent text-white border-white/40 flex items-center focus:outline-none"
+                >
+                  {i18n.language === 'hi' ? 'हिंदी' : 'EN'}
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                {showLangDropdown && (
+                  <div className="absolute right-0 mt-2 w-24 bg-white rounded shadow-lg z-50">
+                    <button
+                      onClick={() => handleLanguageChange('en')}
+                      className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === 'en' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => handleLanguageChange('hi')}
+                      className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === 'hi' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
+                    >
+                      हिंदी
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -78,7 +112,33 @@ const Navbar = ({home}) => {
           </div> */}
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Language Switcher Dropdown for Mobile */}
+            <div className="relative">
+              <button
+                onClick={() => setShowLangDropdown((prev) => !prev)}
+                className="px-2 py-1 rounded text-xs font-semibold border bg-transparent text-white border-white/40 flex items-center focus:outline-none"
+              >
+                {i18n.language === 'hi' ? 'हिंदी' : 'EN'}
+                <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              {showLangDropdown && (
+                <div className="absolute right-0 mt-2 w-20 bg-white rounded shadow-lg z-50">
+                  <button
+                    onClick={() => handleLanguageChange('en')}
+                    className={`block w-full text-left px-4 py-2 text-xs ${i18n.language === 'en' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange('hi')}
+                    className={`block w-full text-left px-4 py-2 text-xs ${i18n.language === 'hi' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
+                  >
+                    हिंदी
+                  </button>
+                </div>
+              )}
+            </div>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-300 hover:text-white p-2 rounded-md transition-colors duration-200"
@@ -93,7 +153,7 @@ const Navbar = ({home}) => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</Link>
+          <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">{t('navbar.home')}</Link>
             {home && navLinks.map((link) => (
               <a
                 key={link.name}
@@ -105,7 +165,7 @@ const Navbar = ({home}) => {
               </a>
             ))}
             
-            <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">About Us</Link>
+            <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">{t('navbar.about')}</Link>
             {/* <div className="flex items-center space-x-4 pt-4 border-t border-gray-800 mt-4">
               <button className="text-gray-300 hover:text-white p-2 rounded-md transition-colors duration-200">
                 <Search size={20} />

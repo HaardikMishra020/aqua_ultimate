@@ -5,28 +5,10 @@ import { Mail, Phone, MapPin, Facebook,  Instagram,  Send, Youtube } from 'lucid
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';
 import { scale } from "@cloudinary/url-gen/actions/resize";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-  const footerLinks = {
-    product: [
-      { name: 'How it Works', href: '#how-it-works' },
-      { name: 'Features', href: '#features' },
-      { name: 'Reviews', href: '#reviews' },
-      { name: 'Pricing', href: '#pricing' }
-    ],
-    support: [
-      { name: 'Installation Guide', href: '#additional-info' },
-      { name: 'Warranty', href: '#additional-info' },
-      { name: 'Customer Support', href: '#faqs' },
-      { name: 'FAQ', href: '#faqs' }
-    ],
-    company: [
-      { name: 'About Us', href: '#' },
-      { name: 'Careers', href: '#' },
-      { name: 'Press', href: '#' },
-      { name: 'Contact', href: '#' }
-    ]
-  };
+  const { t } = useTranslation();
 
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/people/Aqua-Ultimate-Softening-solution/100054273500171', label: 'Facebook' },
@@ -46,8 +28,7 @@ const Footer = () => {
               <span className="font-bold text-xl">Aqua Ultimate</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Transforming hard water into soft, healthy water for homes across India. 
-              Experience the difference with our innovative water conditioning technology.
+              {t('footer.companyDesc')}
             </p>
             
             {/* Contact Info */}
@@ -69,43 +50,37 @@ const Footer = () => {
 
           {/* Product Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Product</h3>
+            <h3 className="font-semibold text-lg mb-6">{t('footer.product')}</h3>
             <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">{t('howItWorks.title')}</a></li>
+              <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">{t('featuresBar.title')}</a></li>
+              <li><a href="#reviews" className="text-gray-400 hover:text-white transition-colors">{t('testimonials.title')}</a></li>
+              <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
             </ul>
           </div>
 
           {/* Support Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Support</h3>
+            <h3 className="font-semibold text-lg mb-6">{t('footer.support')}</h3>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <li><a href="#additional-info" className="text-gray-400 hover:text-white transition-colors">{t('additionalInfo.options.2.title')}</a></li>
+              <li><a href="#additional-info" className="text-gray-400 hover:text-white transition-colors">{t('additionalInfo.options.1.title')}</a></li>
+              <li><a href="#faqs" className="text-gray-400 hover:text-white transition-colors">Customer Support</a></li>
+              <li><a href="#faqs" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Stay Updated</h3>
+            <h3 className="font-semibold text-lg mb-6">{t('footer.newsletterTitle')}</h3>
             <p className="text-gray-400 mb-6">
-              Get the latest updates, tips, and exclusive offers delivered to your inbox.
+              {t('footer.newsletterDesc')}
             </p>
             
             <div className="flex">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('footer.newsletterPlaceholder')}
                 className="flex-1 px-4 py-3 rounded-l-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <button className="px-6 py-3 bg-primary text-accent rounded-r-full hover:bg-accent hover:text-white transition-colors">
@@ -141,11 +116,11 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 Aqua Ultimate. All rights reserved.
+              {t('footer.copyright')}
             </div>
             <div className="flex space-x-6 text-sm">
-              <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="/disclaimer" className="text-gray-400 hover:text-white transition-colors">Disclaimer</Link>
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">{t('footer.privacyPolicy')}</Link>
+              <Link to="/disclaimer" className="text-gray-400 hover:text-white transition-colors">{t('footer.disclaimer')}</Link>
             </div>
           </div>
         </motion.div>

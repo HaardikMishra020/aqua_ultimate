@@ -1,0 +1,247 @@
+  {
+  "mapSection": {
+    "cities": {
+      "mumbai": "Mumbai",
+      "delhi": "Delhi",
+      "bangalore": "Bangalore",
+      "chennai": "Chennai",
+      "hyderabad": "Hyderabad",
+      "chandigarh": "Chandigarh",
+      "pune": "Pune",
+      "ahmedabad": "Ahmedabad",
+      "jaipur": "Jaipur",
+      "kolkata": "Kolkata",
+      "lucknow": "Lucknow",
+      "kochi": "Kochi",
+      "bhopal": "Bhopal",
+      "nagpur": "Nagpur",
+      "patna": "Patna"
+    },
+    "heading": "Trusted by Thousands Across India",
+    "paragraph": "From the bustling streets of Mumbai to the tech hubs of Bangalore, families across India are choosing Aqua Ultimate for their water conditioning needs. Join thousands of satisfied customers who have transformed their water quality.",
+    "stats": {
+      "happyFamilies": "Happy Families",
+      "citiesCovered": "Cities Covered",
+      "customerRating": "Customer Rating"
+    }
+  },
+  "aboutUs": {
+    "heading": "ABOUT US",
+    "subheading": "More than a water solution - We strive for WATER REVOLUTION",
+    "desc": "Aqua Ultimate was founded with a vision to bring safe, affordable, and innovative water purification solutions to every home. Backed by over 15 years of expertise in the water treatment industry, we have grown from offering simple RO systems to delivering advanced, reliable, and user-friendly purification technologies. Over the years, we’ve built trust through quality products, transparent service, and a strong focus on customer satisfaction. Our systems are designed with certified components, and cost-effective maintenance—making us a preferred choice for families across India. At Aqua Ultimate, we believe we’re not just solving water problems—we’re shaping a healthier, cleaner, and more sustainable future.",
+    "stats": {
+      "families": "Happy Families",
+      "cities": "Cities Covered",
+      "rating": "Customer Rating"
+    }
+  },
+  "privacyPolicy": {
+    "heading": "Privacy Policy",
+    "content": [
+      "We respect and humbly value the privacy of every visitor to our website. Under no circumstances will Aqua Ultimate share or disclose your personal information to external parties, unless we are legally obligated to do so.",
+      "All personal information provided to Aqua Ultimate, whether through our website or by other means, is securely protected. At the time of collecting personal information, individuals will be clearly informed about:",
+      "What information is being collected",
+      "The purpose for which it is collected",
+      "Their right to access or update this information",
+      "By using our website, you acknowledge and agree to the terms of this Privacy Policy. Aqua Ultimate reserves the right to update, modify, or amend this policy at any time. Any changes will be effective immediately upon posting on our website.",
+      "Continued use of our website after such updates will be considered as acceptance of those changes."
+    ]
+  },
+  "disclaimer": {
+    "heading": "Disclaimer",
+    "content": [
+      "The Site, and all content, materials, information, and services provided on the Site, are offered on an 'as is' and 'as available' basis.",
+      "Aqua Ultimate explicitly disclaims all warranties of any kind, whether express or implied, including, but not limited to, the implied warranties of fitness for a particular purpose and non-infringement.",
+      "While utmost care has been taken to ensure the authenticity and accuracy of the information provided, Aqua Ultimate disclaims liability for the correctness, completeness, or infallibility of such information."
+    ]
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "howItWorks": "How it Works",
+    "reviews": "Reviews",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "Smart Water Conditioner for Healthy Living",
+    "description": "Transform your hard water into soft, healthy water that's gentle on your skin, hair, and appliances. Experience the difference with Aqua Ultimate.",
+    "startingFrom": "Starting from",
+    "price": "₹9,990",
+    "discount": "25% OFF",
+    "warranty": "2 Years Warranty • 15 Years Lifetime (Approx)",
+    "buyNow": "Buy Now"
+  },
+  "waterConditionerInfo": {
+    "title": "What is a Water Conditioner?",
+    "description": "Water conditioners are innovative devices that neutralize hard minerals in your water, preventing hair and skin problems without removing healthy minerals which are essential for your body. They help soaps and shampoos lather better, protect your appliances and underground pipelines, and require zero maintenance—making them a smart, hassle-free solution for healthier water throughout your home."
+  },
+  "featuresBar": {
+    "title": "Why Choose Aqua Ultimate Water Conditioner?",
+    "subtitle": "Experience the difference with our innovative water conditioning technology",
+    "features": [
+      { "title": "Better Hair", "description": "Softer, healthier hair" },
+      { "title": "Skin Safe", "description": "Gentle on your skin" },
+      { "title": "Activate Soap", "description": "Soap lathers better" },
+      { "title": "Protect Clothes", "description": "Protect clothes from fading" },
+      { "title": "No Maintenance", "description": "Set it and forget it" },
+      { "title": "15 Year Life", "description": "Long-lasting performance" }
+    ]
+  },
+  "howItWorks": {
+    "title": "How Water Conditioner Works",
+    "description": "Our innovative technology transforms hard water into soft, healthy water in just seconds"
+  },
+  "beforeAfter": {
+    "title": "See the Difference",
+    "subtitle": "Use the slider (◀ ▶) to experience how Aqua Ultimate Water Conditioner improves your everyday life.",
+    "slides": [
+      {
+        "title": "Skin Transformation",
+        "beforeTitle": "Before",
+        "beforeDescription": "Hard water often leaves skin dry, itchy, and irritated. Daily showers can strip away natural oils, making your skin feel rough and uncomfortable.",
+        "afterTitle": "After",
+        "afterDescription": "With conditioned water, your skin stays naturally moisturized and smooth. Customers notice softer, healthier skin that feels nourished after every wash."
+      },
+      {
+        "title": "Hair Health",
+        "beforeTitle": "Before",
+        "beforeDescription": "Hard water causes mineral buildup that makes hair brittle, dull, and difficult to manage. Even good shampoos often fail to lather properly.",
+        "afterTitle": "After",
+        "afterDescription": "With conditioned water, hair feels softer, shinier, and easier to style. Customers experience healthier growth and fewer bad hair days."
+      },
+      {
+        "title": "Scale Buildup",
+        "beforeTitle": "Before",
+        "beforeDescription": "Hard water leads to heavy scale deposits inside pipes. Appliances like geysers and washing machines lose efficiency and often break down sooner due to clogging.",
+        "afterTitle": "After",
+        "afterDescription": "With conditioned water, scale buildup is prevented. Pipes and appliances last longer, and your bathroom looks cleaner with minimal maintenance."
+      },
+      {
+        "title": "Plants Growth",
+        "beforeTitle": "Before",
+        "beforeDescription": "Excess salts and minerals in hard water can hinder plant growth. Leaves turn yellow and soil becomes less fertile over time.",
+        "afterTitle": "After",
+        "afterDescription": "Using conditioned water helps plants absorb nutrients more effectively. The result is greener leaves, stronger roots, and faster, healthier growth."
+      }
+    ]
+  },
+  "productsSection": {
+    "title": "Our Range of Products",
+    "subtitle": "Discover our comprehensive range of water treatment solutions designed to provide you with the purest, healthiest water possible.",
+  "categories": ["Water Conditioner", "Whole House Water Filter", "RO System", "Water Softener"],
+    "productNames": {
+      "1000 LPH Water Conditioner": "1000 LPH Water Conditioner",
+      "Manual 10": "Manual 10",
+      "Manual 20": "Manual 20",
+      "SF": "SF",
+      "PW 31": "PW 31",
+      "Commercial 40 ltr/hr": "Commercial 40 ltr/hr",
+      "Industrial 1000 Ltr/hr": "Industrial 1000 Ltr/hr",
+      "15 lph Alkaline": "15 lph Alkaline",
+      "Under Sink": "Under Sink",
+      "650 LPH Water Conditioner": "650 LPH Water Conditioner",
+      "Shower Conditioner": "Shower Conditioner",
+  "Water Softener": "Water Softener",
+  "Easy Flush Sand Filter": "Easy Flush Sand Filter"
+  },
+    "seeMore": "See More",
+    "noProducts": {
+      "title": "No products found",
+      "desc": "We're working on adding products to this category."
+    }
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Real testimonials from families who have experienced the Aqua Ultimate difference",
+    "reviews":{
+      "harishKumar": "Aqua Ultimate Water Conditioner has completely transformed our water quality. My skin feels so much softer and my hair is no longer dry and frizzy. The installation was simple and the results were immediate. Highly recommend!",
+      "anilSolanki": "After struggling with hard water for years, This product was a game-changer. Our bathroom tiles stay clean, appliances last longer, and the water feels amazing. Best investment for our home!",
+      "vinodBhadauria": "I was skeptical at first, but the difference is noticable. My kids' skin rashes have completely disappeared, and our clothes feel softer after washing. Aqua Ultimate Water Conditioner does what it promises.",
+      "swatiSingh": "I've been using Aqua Ultimate Water Conditioner for 2 years now, and the difference is amazing. The water feels softer, my hair doesn’t get dry anymore, and even my washing machine is running better. The best part is – it’s completely maintenance-free. Overall, I’m really happy with the product"
+    }
+  },
+  "faqSection": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to the most common questions about Aqua Ultimate water conditioner",
+    "questions": [
+      {
+        "q": "How does the Aqua Ultimate Water Conditioner work?",
+        "a": "The Aqua Ultimate Water Conditioner uses a high-power magnetic field to break down hardness particles into nano-sized particles and polarize them. This process enhances soap effectiveness, reduces roughness caused by hard water, and improves the experience of bathing, washing, and cleaning for hair, skin, and clothes."
+      },
+      {
+        "q": "Does it require maintenance?",
+        "a": "No. The Aqua Ultimate Water Conditioner has no filters or consumables, which means it requires no servicing or maintenance throughout its lifespan."
+      },
+      {
+        "q": "What is the lifespan of the Aqua Ultimate Water Conditioner?",
+        "a": "On average, water conditioners have a lifespan of around 15 years, ensuring long-term performance without the need for replacement or upkeep."
+      },
+      {
+        "q": "Does it make water drinkable?",
+        "a": "No. The Aqua Ultimate Water Conditioner does not make drinking water. Instead, it provides a cosmetic treatment to water, offering benefits for bathing, washing, laundry, skin, hair, plants, and overall household use."
+      }
+    ],
+    "stillHaveQuestions": "Still Have Questions?",
+    "supportDesc": "Our customer support team is here to help you with any questions about Aqua Ultimate",
+    "callUs": "Call us",
+    "whatsappUs": "WhatsApp us"
+  },
+  "additionalInfo": {
+    "title": "Additional Information",
+    "subtitle": "Everything you need to know about warranty, and installation",
+    "options": [
+      {
+        "id": "contact",
+        "title": "Contact Details",
+        "cta": "Get in Touch",
+        "desc": "Have questions? We’re here to help.",
+        "details": [
+          "Phone Number - +91-9219265755 , +91-7217438330",
+          "Office Address - 73 Roshan Bagh, Dayal Bagh, Agra, Uttar Pradesh 282005",
+          "Email Address - aquaultimate11@gmail.com"
+        ],
+        "learnMore": "Click to learn more"
+      },
+      {
+        "id": "warranty",
+        "title": "Warranty Details",
+        "cta": "2-Year Comprehensive Warranty",
+        "desc": "Here's all you need to know about the warranty of Aqua Ultimate Water Conditioner.",
+        "details": [
+          "The Aqua Ultimate Water Conditioner comes with a 2-year replacement warranty for verified performance issues.",
+          "Customers must use the Aqua Ultimate Power Tester App (Android) to check device performance. If the device generates low power (as verified by the app), the company will provide a replacement within the warranty period.",
+          "The device requires no servicing or maintenance. Customers are encouraged to test the device periodically with the app to ensure smooth functioning.",
+          "The warranty does not cover damages caused by: Improper or incorrect installation, Misuse or rough handling, Physical damage, Unauthorized modifications",
+          "If a verified issue is found, the company will replace the product free of cost within the warranty period. No returns or refunds are applicable once the product has been used"
+        ],
+        "learnMore": "Click to learn more"
+      },
+      {
+        "id": "installation",
+        "title": "Installation Details",
+        "cta": "All about Installation",
+        "desc": "Our Product Installation process is simple and can be done in 3 easy steps",
+        "details": [
+          "Make two cuts in the main water pipeline equal to the length of the device.",
+          "Fix the CPVC sockets (provided with the device) onto both ends of the pipeline.",
+          "Place the Aqua Ultimate Water Conditioner between the two sockets and apply the adhesive solution to both ends for a secure fit.",
+          "Tip: You can ask any local plumber to easily follow these steps for installation."
+        ],
+        "learnMore": "Click to learn more"
+      }
+    ]
+  },
+  "footer": {
+    "companyDesc": "Transforming hard water into soft, healthy water for homes across India. Experience the difference with our innovative water conditioning technology.",
+    "product": "Product",
+    "support": "Support",
+    "company": "Company",
+    "newsletterTitle": "Stay Updated",
+    "newsletterDesc": "Get the latest updates, tips, and exclusive offers delivered to your inbox.",
+    "newsletterPlaceholder": "Enter your email",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "copyright": "© 2025 Aqua Ultimate. All rights reserved."
+  }
+}

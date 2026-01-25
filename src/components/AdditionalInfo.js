@@ -1,80 +1,49 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Wrench,  Play, Contact } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const AdditionalInfo = () => {
+  const { t } = useTranslation();
   const [selectedOption, setSelectedOption] = useState('contact');
 
   const options = [
     {
       id: 'contact',
-      title: 'Contact Details',
+      title: t('additionalInfo.options.0.title'),
       icon: Contact,
       content: {
-        title: 'Get in Touch',
-        description: 'Have questions? We’re here to help.',
-        details: [
-          'Phone Number - +91-9219265755 , +91-7217438330',
-          'Office Address - 73 Roshan Bagh, Dayal Bagh, Agra, Uttar Pradesh 282005',
-          'Email Address - aquaultimate11@gmail.com',
-        ],
-        videoUrl: null, // Add video URL if available
+        title: t('additionalInfo.options.0.cta'),
+        description: t('additionalInfo.options.0.desc'),
+        details: t('additionalInfo.options.0.details', { returnObjects: true }),
+        videoUrl: null,
         map:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3547.9009750233545!2d77.99661047589507!3d27.222258646718604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397479e0f9283c25%3A0x5d8cd89f945e38ce!2sAqua%20Ultimate%20Water%20Conditioner!5e0!3m2!1sen!2sin!4v1755366500613!5m2!1sen!2sin'
       }
     },
     {
       id: 'warranty',
-      title: 'Warranty Details',
+      title: t('additionalInfo.options.1.title'),
       icon: Shield,
       content: {
-        title: '2-Year Comprehensive Warranty',
-        description: 'Here\'s all you need to know about the warranty of Aqua Ultimate Water Conditioner.',
-        details: [
-          'The Aqua Ultimate Water Conditioner comes with a 2-year replacement warranty for verified performance issues.',
-          'Customers must use the Aqua Ultimate Power Tester App (Android) to check device performance. If the device generates low power (as verified by the app), the company will provide a replacement within the warranty period.',
-          'The device requires no servicing or maintenance. Customers are encouraged to test the device periodically with the app to ensure smooth functioning.',
-          'The warranty does not cover damages caused by: Improper or incorrect installation, Misuse or rough handling, Physical damage, Unauthorized modifications',
-          'If a verified issue is found, the company will replace the product free of cost within the warranty period. No returns or refunds are applicable once the product has been used'
-        ],
+        title: t('additionalInfo.options.1.cta'),
+        description: t('additionalInfo.options.1.desc'),
+        details: t('additionalInfo.options.1.details', { returnObjects: true }),
         videoUrl: null,
-        map:null // Add video URL if available
+        map:null
       }
     },
     {
       id: 'installation',
-      title: 'Installation Details',
+      title: t('additionalInfo.options.2.title'),
       icon: Wrench,
       content: {
-        title: 'All about Installation',
-        description: 'Our Product Installation process is simple and can be done in 3 easy steps',
-        details: [
-          'Make two cuts in the main water pipeline equal to the length of the device.',
-          'Fix the CPVC sockets (provided with the device) onto both ends of the pipeline.',
-          'Place the Aqua Ultimate Water Conditioner between the two sockets and apply the adhesive solution to both ends for a secure fit.',
-          'Tip: You can ask any local plumber to easily follow these steps for installation.',
-        ],
+        title: t('additionalInfo.options.2.cta'),
+        description: t('additionalInfo.options.2.desc'),
+        details: t('additionalInfo.options.2.details', { returnObjects: true }),
         videoUrl: null,
-        map:null // Add video URL if available
+        map:null
       }
-    },
-    // {
-    //   id: 'referral',
-    //   title: 'Referral Program',
-    //   icon: Users,
-    //   content: {
-    //     title: 'Earn While You Share',
-    //     description: 'Join our referral program and earn rewards for every successful referral.',
-    //     details: [
-    //       'Join Easily – WhatsApp “Referral” to +91-9760574402 and get your unique referral code.',
-    //       'Share with Friends – Tell your friends and family about Aqua Ultimate Water Conditioner.',
-    //       'Earn Cashback Together – When your friend buys, both of you get ₹500 cashback.',
-    //       'No Limits – Refer as many people as you want and keep earning.',
-    //       'Win-Win Deal – Simple, rewarding, and beneficial for both you and your friends.'
-    //     ],
-    //     videoUrl: null,
-    //     map:null // Add video URL if available
-    //   }
-    // }
+    }
   ];
 
   const currentContent = options.find(option => option.id === selectedOption)?.content;
@@ -90,10 +59,10 @@ const AdditionalInfo = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Additional Information
+            {t('additionalInfo.title')}
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Everything you need to know about warranty, and installation
+            {t('additionalInfo.subtitle')}
           </p>
         </motion.div>
 
@@ -202,7 +171,7 @@ const AdditionalInfo = () => {
                         {option.title}
                       </h3>
                       <p className="text-sm opacity-80">
-                        Click to learn more
+                        {t(`additionalInfo.options.${options.findIndex(o => o.id === option.id)}.learnMore`)}
                       </p>
                     </div>
                   </div>

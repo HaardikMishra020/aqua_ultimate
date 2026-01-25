@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 
 const MapSection = () => {
   const [pulsePoints, setPulsePoints] = useState([]);
+  const { t } = useTranslation();
+  
 
   // Generate random pulse points on the map
   useEffect(() => {
     const generatePulsePoint = () => {
-      const points = [
-        { x: 22, y: 60, city: 'Mumbai' },
-        { x: 33, y: 30, city: 'Delhi' },
-        { x: 33, y: 76, city: 'Bangalore' },
-        { x: 40, y: 78, city: 'Chennai' },
-        { x: 36, y: 65, city: 'Hyderabad' },
-        { x: 30, y: 23, city: 'Chandigarh' },
-        { x: 26, y: 61, city: 'Pune' },
-        { x: 21, y: 47, city: 'Ahmedabad' },
-        { x: 28, y: 36, city: 'Jaipur' },
-        { x: 63, y: 48, city: 'Kolkata' },
-        { x: 41, y: 35, city: 'Lucknow' },
-        { x: 31, y: 85, city: 'Kochi' },
-        { x: 35, y: 46, city: 'Bhopal' },
-        { x: 39, y: 54, city: 'Nagpur' },
-        { x: 56, y: 40, city: 'Patna' }, 
-      ];
+    const points = [
+      { x: 22, y: 60, city: t('mapSection.cities.mumbai') },
+      { x: 33, y: 30, city: t('mapSection.cities.delhi') },
+      { x: 33, y: 76, city: t('mapSection.cities.bangalore') },
+      { x: 40, y: 78, city: t('mapSection.cities.chennai') },
+      { x: 36, y: 65, city: t('mapSection.cities.hyderabad') },
+      { x: 30, y: 23, city: t('mapSection.cities.chandigarh') },
+      { x: 26, y: 61, city: t('mapSection.cities.pune') },
+      { x: 21, y: 47, city: t('mapSection.cities.ahmedabad') },
+      { x: 28, y: 36, city: t('mapSection.cities.jaipur') },
+      { x: 63, y: 48, city: t('mapSection.cities.kolkata') },
+      { x: 41, y: 35, city: t('mapSection.cities.lucknow') },
+      { x: 31, y: 85, city: t('mapSection.cities.kochi') },
+      { x: 35, y: 46, city: t('mapSection.cities.bhopal') },
+      { x: 39, y: 54, city: t('mapSection.cities.nagpur') },
+      { x: 56, y: 40, city: t('mapSection.cities.patna') }
+    ];
       
       const randomPoint = points[Math.floor(Math.random() * points.length)];
       const newPulse = {
@@ -283,29 +287,27 @@ const MapSection = () => {
                   <Users size={24} className="text-white" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  Trusted by Thousands Across India
+                  {t('mapSection.heading')}
                 </h2>
               </div>
-
+                  
               <p className="text-md md:text-lg text-gray-600 mb-8 leading-relaxed">
-                From the bustling streets of Mumbai to the tech hubs of Bangalore, 
-                families across India are choosing Aqua Ultimate for their water conditioning needs. 
-                Join thousands of satisfied customers who have transformed their water quality.
+                {t('mapSection.paragraph')}
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">10,000+</div>
-                  <div className="text-sm text-gray-600">Happy Families</div>
+                  <div className="text-sm text-gray-600">{t('mapSection.stats.happyFamilies')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
-                  <div className="text-sm text-gray-600">Cities Covered</div>
+                  <div className="text-sm text-gray-600">{t('mapSection.stats.citiesCovered')}</div>
                 </div>
                 <div className="text-center col-span-2 md:col-span-1">
                   <div className="text-3xl font-bold text-blue-600 mb-2">4.9★</div>
-                  <div className="text-sm text-gray-600">Customer Rating</div>
+                  <div className="text-sm text-gray-600">{t('mapSection.stats.customerRating')}</div>
                 </div>
               </div>
 

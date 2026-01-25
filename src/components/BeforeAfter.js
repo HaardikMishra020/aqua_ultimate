@@ -2,81 +2,31 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import { useTranslation } from 'react-i18next';
 
 
 const BeforeAfter = () => {
   const [current, setCurrent] = useState(0);
-
-  const slides = [
+  const { t } = useTranslation();
+  const slidesData = [
     {
-      title: "Skin Transformation",
-      before: {
-        title: "Before",
-        description:
-          "Hard water often leaves skin dry, itchy, and irritated. Daily showers can strip away natural oils, making your skin feel rough and uncomfortable.",
-        imageUrl:
-          "generated-image_3_pp2omw",
-      },
-      after: {
-        title: "After",
-        description:
-          "With conditioned water, your skin stays naturally moisturized and smooth. Customers notice softer, healthier skin that feels nourished after every wash.",
-        imageUrl:
-          "generated-image_2_l55aqk",
-      },
+      beforeImg: "generated-image_3_pp2omw",
+      afterImg: "generated-image_2_l55aqk"
     },
     {
-      title: "Hair Health",
-      before: {
-        title: "Before",
-        description:
-          "Hard water causes mineral buildup that makes hair brittle, dull, and difficult to manage. Even good shampoos often fail to lather properly.",
-        imageUrl:
-          "generated-image_hzm8uz",
-      },
-      after: {
-        title: "After",
-        description:
-          "With conditioned water, hair feels softer, shinier, and easier to style. Customers experience healthier growth and fewer bad hair days.",
-        imageUrl:
-          "generated-image_1_p1wxy1",
-      },
+      beforeImg: "generated-image_hzm8uz",
+      afterImg: "generated-image_1_p1wxy1"
     },
     {
-      title: "Scale Buildup",
-      before: {
-        title: "Before",
-        description:
-          "Hard water leads to heavy scale deposits inside pipes. Appliances like geysers and washing machines lose efficiency and often break down sooner due to clogging.",
-        imageUrl:
-          "generated-image_12_gfsrwh",
-      },
-      after: {
-        title: "After",
-        description:
-          "With conditioned water, scale buildup is prevented. Pipes and appliances last longer, and your bathroom looks cleaner with minimal maintenance.",
-        imageUrl:
-          "generated-image_13_bymtao",
-      },
+      beforeImg: "generated-image_12_gfsrwh",
+      afterImg: "generated-image_13_bymtao"
     },
     {
-      title: "Plants Growth",
-      before: {
-        title: "Before",
-        description:
-          "Excess salts and minerals in hard water can hinder plant growth. Leaves turn yellow and soil becomes less fertile over time.",
-        imageUrl:
-          "generated-image_5_aqoejo",
-      },
-      after: {
-        title: "After",
-        description:
-          "Using conditioned water helps plants absorb nutrients more effectively. The result is greener leaves, stronger roots, and faster, healthier growth.",
-        imageUrl:
-          "generated-image_4_p4fccm",
-      },
-    },
+      beforeImg: "generated-image_5_aqoejo",
+      afterImg: "generated-image_4_p4fccm"
+    }
   ];
+  const slides = t('beforeAfter.slides', { returnObjects: true });
 
   const handlePrev = () => {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -87,7 +37,7 @@ const BeforeAfter = () => {
   };
 
   return (
-<section className="bg-blue-200 py-12">
+    <section className="bg-blue-200 py-12">
       <div className="max-w-6xl mx-auto px-4">
         {/* Heading */}
         <motion.div
@@ -98,10 +48,10 @@ const BeforeAfter = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-2">
-            See the Difference
+            {t('beforeAfter.title')}
           </h2>
           <p className="text-gray-600 text-md md:text-xl">
-          Use the slider (◀ ▶) to experience how Aqua Ultimate Water Conditioner improves your everyday life.
+            {t('beforeAfter.subtitle')}
           </p>
         </motion.div>
 
@@ -118,8 +68,16 @@ const BeforeAfter = () => {
               className="w-full flex flex-col items-center"
             >
               <BeforeAfterSlider
-                before={slides[current].before}
-                after={slides[current].after}
+                before={{
+                  title: slides[current].beforeTitle,
+                  description: slides[current].beforeDescription,
+                  imageUrl: slidesData[current].beforeImg
+                }}
+                after={{
+                  title: slides[current].afterTitle,
+                  description: slides[current].afterDescription,
+                  imageUrl: slidesData[current].afterImg
+                }}
               />
             </motion.div>
 
@@ -160,12 +118,12 @@ const BeforeAfter = () => {
             </h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-md md:text-xl text-red-600">{slides[current].before.title}</h4>
-                <p className="text-white text-sm md:text-xl">{slides[current].before.description}</p>
+                <h4 className="text-md md:text-xl text-red-600">{slides[current].beforeTitle}</h4>
+                <p className="text-white text-sm md:text-xl">{slides[current].beforeDescription}</p>
               </div>
               <div>
-                <h4 className="text-md md:text-xl text-green-600">{slides[current].after.title}</h4>
-                <p className="text-white text-sm md:text-xl">{slides[current].after.description}</p>
+                <h4 className="text-md md:text-xl text-green-600">{slides[current].afterTitle}</h4>
+                <p className="text-white text-sm md:text-xl">{slides[current].afterDescription}</p>
               </div>
             </div>
           </div>

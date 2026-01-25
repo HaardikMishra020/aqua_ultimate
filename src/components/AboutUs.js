@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 import Goals from "../components/Goals";
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';
 import { scale } from "@cloudinary/url-gen/actions/resize";
 
 export default function AboutUs() {
+  const { t } = useTranslation();
   const cldAboutbg=cld.image(`about-bg_vpmhuo`).format("auto").quality("auto").resize(scale().width(500))
   const cldAbout01=cld.image(`about-01_v8qtig`).format("auto").quality("auto").resize(scale().width(500))
   const cldAbout02=cld.image(`about-02_dhczwo`).format("auto").quality("auto").resize(scale().width(500))
@@ -28,7 +30,7 @@ export default function AboutUs() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-white mb-8"
         >
-          ABOUT US
+          {t('aboutUs.heading')}
         </motion.h2>
 
         <motion.h2
@@ -38,7 +40,7 @@ export default function AboutUs() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold text-white mb-4"
         >
-          More than a water solution - We strive for WATER REVOLUTION
+          {t('aboutUs.subheading')}
         </motion.h2>
 
         {/* Images + Text Row */}
@@ -56,19 +58,7 @@ export default function AboutUs() {
           </div>
           <div>
             <div className="text-lg text-white my-5">
-              <span className="font-bold text-xl">Aqua Ultimate </span>
-              was founded with a vision to bring safe, affordable, and innovative
-              water purification solutions to every home. Backed by over 15 years
-              of expertise in the water treatment industry, we have grown from
-              offering simple RO systems to delivering advanced, reliable, and
-              user-friendly purification technologies. Over the years, we’ve built
-              trust through quality products, transparent service, and a strong
-              focus on customer satisfaction. Our systems are designed with
-              certified components, and cost-effective maintenance—making us a
-              preferred choice for families across India. At{" "}
-              <span className="font-bold text-xl">Aqua Ultimate </span>, we
-              believe we’re not just solving water problems—we’re shaping a
-              healthier, cleaner, and more sustainable future.
+              {t('aboutUs.desc')}
             </div>
             <AdvancedImage key={cldAbout02} cldImg={cldAbout02}
               className="w-full h-64 object-cover rounded-lg shadow"
@@ -86,15 +76,15 @@ export default function AboutUs() {
         >
           <div className="text-center">
             <div className="text-3xl font-bold text-white mb-2">10,000+</div>
-            <div className="text-sm text-white">Happy Families</div>
+            <div className="text-sm text-white">{t('aboutUs.stats.families')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-white mb-2">25+</div>
-            <div className="text-sm text-white">Cities Covered</div>
+            <div className="text-sm text-white">{t('aboutUs.stats.cities')}</div>
           </div>
           <div className="text-center col-span-2 md:col-span-1">
             <div className="text-3xl font-bold text-white mb-2">4.9★</div>
-            <div className="text-sm text-white">Customer Rating</div>
+            <div className="text-sm text-white">{t('aboutUs.stats.rating')}</div>
           </div>
         </motion.div>
 
