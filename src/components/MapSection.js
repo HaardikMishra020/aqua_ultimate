@@ -53,7 +53,7 @@ const MapSection = () => {
     generatePulsePoint();
 
     return () => clearInterval(interval);
-  }, []);
+  }, [t]);
 
   return (
     <section className="bg-blue-50 py-12" id="maps">
