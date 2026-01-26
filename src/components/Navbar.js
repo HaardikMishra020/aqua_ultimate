@@ -22,6 +22,15 @@ const Navbar = ({home}) => {
   const { i18n } = useTranslation();
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const { t } = useTranslation();
+  // Supported languages
+  const languages = [
+    { code: 'en', label: 'EN' },
+    { code: 'hi', label: 'हिंदी' },
+    { code: 'te', label: 'తెలుగు' },
+    { code: 'ta', label: 'தமிழ்' },
+    { code: 'gu', label: 'ગુજરાતી' },
+    { code: 'bn', label: 'বাংলা' }
+  ];
   const navLinks = [
     { name: t('navbar.products'), href: '#products' },
     { name: t('navbar.howItWorks'), href: '#how-it-works' },
@@ -78,23 +87,20 @@ const Navbar = ({home}) => {
                   onClick={() => setShowLangDropdown((prev) => !prev)}
                   className="px-2 py-1 rounded text-sm font-semibold border bg-transparent text-white border-white/40 flex items-center focus:outline-none"
                 >
-                  {i18n.language === 'hi' ? 'हिंदी' : 'EN'}
+                  {languages.find(l => l.code === i18n.language)?.label || 'EN'}
                   <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
                 </button>
                 {showLangDropdown && (
-                  <div className="absolute right-0 mt-2 w-24 bg-white rounded shadow-lg z-50">
-                    <button
-                      onClick={() => handleLanguageChange('en')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === 'en' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
-                    >
-                      EN
-                    </button>
-                    <button
-                      onClick={() => handleLanguageChange('hi')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === 'hi' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
-                    >
-                      हिंदी
-                    </button>
+                  <div className="absolute right-0 mt-2 w-28 bg-white rounded shadow-lg z-50">
+                    {languages.map(lang => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code)}
+                        className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === lang.code ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
                   </div>
                 )}
               </div>
@@ -119,23 +125,20 @@ const Navbar = ({home}) => {
                 onClick={() => setShowLangDropdown((prev) => !prev)}
                 className="px-2 py-1 rounded text-xs font-semibold border bg-transparent text-white border-white/40 flex items-center focus:outline-none"
               >
-                {i18n.language === 'hi' ? 'हिंदी' : 'EN'}
+                {languages.find(l => l.code === i18n.language)?.label || 'EN'}
                 <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
               </button>
               {showLangDropdown && (
-                <div className="absolute right-0 mt-2 w-20 bg-white rounded shadow-lg z-50">
-                  <button
-                    onClick={() => handleLanguageChange('en')}
-                    className={`block w-full text-left px-4 py-2 text-xs ${i18n.language === 'en' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
-                  >
-                    EN
-                  </button>
-                  <button
-                    onClick={() => handleLanguageChange('hi')}
-                    className={`block w-full text-left px-4 py-2 text-xs ${i18n.language === 'hi' ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
-                  >
-                    हिंदी
-                  </button>
+                <div className="absolute right-0 mt-2 w-28 bg-white rounded shadow-lg z-50">
+                  {languages.map(lang => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleLanguageChange(lang.code)}
+                      className={`block w-full text-left px-4 py-2 text-xs ${i18n.language === lang.code ? 'bg-gray-200 font-bold' : 'hover:bg-gray-100'}`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
