@@ -157,11 +157,11 @@ const ProductsSection = () => {
       "id":10,
       "name": "650 LPH Water Conditioner",
       "priceINR": 14999,
-      "priceActual": 9990,
+      "priceActual": 11990,
       "currency": "INR",
       "category": "Water Conditioner",
       "rating":4,
-      "type": "new",
+      "type": "existing",
       "imgUrl":"IMG20250122144729-Photoroom_oj0cw1"
     },
     {
@@ -191,7 +191,7 @@ const ProductsSection = () => {
       "currency": "INR",
       "category": "Whole House Water Filter",
       "rating": 5,
-      "type": "existing",
+      "type": "new",
       "imgUrl": "Flush_Filter_Image_ybaddf"
     }
   ];
