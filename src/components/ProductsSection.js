@@ -233,6 +233,9 @@ const ProductsSection = () => {
     : filteredProducts;
 
   const handleBuyNow = (productName) => {
+    if (window.fbq) {
+      window.fbq('track', 'RedirectToAmazon');
+    }
     // TODO: Replace with actual Amazon URL for each product
     let amazonUrl='';
     if (productName === '1000 LPH Water Conditioner')

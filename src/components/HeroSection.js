@@ -13,6 +13,9 @@ const HeroSection = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
   const handleBuyNow = () => {
+    if (window.fbq) {
+      window.fbq('track', 'RedirectToAmazon');
+    }
     // TODO: Replace with actual Amazon URL for the main product
     const amazonUrl = 'https://www.amazon.in/gp/product/B0DCJKY89P'
     window.open(amazonUrl, '_blank');

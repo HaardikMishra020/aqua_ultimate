@@ -4,11 +4,13 @@ import About from "./pages/About";
 import Privacy from "./pages/Privacy"
 import Discl from "./pages/Discl";
 import ScrollToTop from "./components/ScrollToTop";
+import MetaPixel from "./components/MetaPixel";
 
 function App() {
   return (
     <>
     <Router>
+    <MetaPixel />
     <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
