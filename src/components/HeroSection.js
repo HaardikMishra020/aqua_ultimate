@@ -1,8 +1,7 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
-import WAVES from 'vanta/dist/vanta.waves.min'
 import { cld } from '../utils/cloudinary';
 import {AdvancedImage} from '@cloudinary/react';
 import { scale } from "@cloudinary/url-gen/actions/resize";
@@ -12,6 +11,7 @@ import { useMediaQuery } from 'react-responsive';
 const HeroSection = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const [vantaLoaded, setVantaLoaded] = useState(false);
   const handleBuyNow = () => {
     if (window.fbq) {
       window.fbq('track', 'RedirectToAmazon');
@@ -21,30 +21,91 @@ const HeroSection = () => {
     window.open(amazonUrl, '_blank');
   };
 
-  useEffect(()=>{
-    WAVES({
-      el:"#home",
-      color:0x003459,
-      mouseControls: true,
-      touchControls: true,
-      waveSpeed: 1.20,
-      zoom: 1.04
-    })
-  },[]);
+  // Function to dynamically load scripts
+  const loadScript = (src) => {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  };
+
+  useEffect(() => {
+    // Only load and initialize Vanta waves on desktop
+    if (!isMobile && !vantaLoaded) {
+      const loadVanta = async () => {
+        try {
+          // Load Three.js first, then Vanta.js
+          await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js');
+          await loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js');
+          
+          // Initialize Vanta waves after scripts are loaded
+          if (window.VANTA) {
+            window.VANTA.WAVES({
+              el: "#home",
+              color: 0x003459,
+              mouseControls: true,
+              touchControls: true,
+              waveSpeed: 1.20,
+              zoom: 1.04
+            });
+            setVantaLoaded(true);
+          }
+        } catch (error) {
+          console.error('Failed to load Vanta.js:', error);
+        }
+      };
+      
+      loadVanta();
+    }
+  }, [isMobile, vantaLoaded]);
 
   const cldmodel=cld.image('Model_t1ftpm').format("auto").quality("auto").resize(scale().width(500))
   const cldmodelmob=cld.image('a04-removebg-preview_aqr7al').format("auto").quality("auto").resize(scale().width(500))
+  const mobileBg = cld
+    .image('vanta-mobile-bg')
+    .format("auto")
+    .quality("auto")
+    .resize(scale().width(1200));
+
+  const mobileBgUrl = mobileBg.toURL();
+
+
   return (
     // <div className= 'app'>
     //   <div className='bg' id='home'></div>
     // </div>
-    <section id="home" className="relative max-h-screen flex items-center overflow-hidden pt-12">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-accent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-accent rounded-full blur-2xl"></div>
-      </div>
+    <section id="home" className="relative max-h-screen flex items-center overflow-hidden pt-12"
+      style={
+    isMobile
+      ? {
+          minHeight: "100vh"
+        }
+      : {}
+  }>
+      {/* Mobile Background */}
+      {isMobile && (
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${mobileBgUrl})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      )}
+
+      {/* Desktop Background Pattern */}
+      {!isMobile && (
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-accent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-accent rounded-full blur-2xl"></div>
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12  items-center">
